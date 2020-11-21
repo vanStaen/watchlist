@@ -1,8 +1,8 @@
 # watchlist
 or `ressources for later dark days`.
 
-List of tutorials - Youtube or other - and sporadic new techs I plan to go though when time is found. 
-Instead of spreading those in my other repo'S readme.md, todo list, or other bookmark, I think that grouping here make more sense. 
+List of tutorials - Youtube or other - and sporadic new techs I plan to go though when time is found. </br>
+Instead of spreading those in my other repo's readme.md, todo list, or other bookmark, I think that grouping here make more sense. 
 
 ## Watchlist:
 List of any tutorial I stumble apon and think I should spend some time with: 
