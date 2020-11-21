@@ -30,6 +30,7 @@ List of any tutorial I stumble apon and think I should spend some time with:
 - JS tips: https://www.youtube.com/watch?v=Mus_vwhTCq0 </br>
 - JS vanilla UX project: https://www.youtube.com/watch?v=c5SIG7Ie0dM </br>
 - 10 hack JS project: https://www.youtube.com/watch?v=8GPPJpiLqHk </br>
+- card animation in JS: https://www.youtube.com/watch?v=XK7T3mY1V-w </br>
 
 ### Other:
 - https://www.youtube.com/watch?v=eB0nUzAI7M8 (GitHub Actions) </br>
