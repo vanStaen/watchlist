@@ -8,7 +8,7 @@
     - [x] GET single/watchlist
     - [ ] POST watchlist
     - [ ] UPDATE watchlist
-    - [ ] DELETE watchlist
+    - [x] DELETE watchlist
   - [x] db connection
 - [ ] Front end
   - [ ] Gatsby?

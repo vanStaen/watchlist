@@ -45,6 +45,21 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// DELETE single data from watchlist (based on id)
+router.delete("/:id", async (req, res) => {
+  try {
+    const watchlist = await client.query('DELETE FROM watchlist WHERE id=' + req.params.id);
+    console.log(res.outputSize);
+    res.status(400).json({
+      success: `User #${req.params.id} has been deleted.`,
+    });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 module.exports = router;
 
 /*
