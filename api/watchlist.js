@@ -1,9 +1,36 @@
 const express = require("express");
 const router = express.Router();
+const { Pool, Client } = require("pg");
 
 // GET all users
 router.get("/", async (req, res) => {
-  res.status(201).json({ msg: 'hello' });
+
+  // Init Postgres
+  const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true })
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; // This bypasses the SSL verification
+
+  // Connect to Postgres 
+  client.connect(err => {
+    if (err) {
+      console.error('connection error', err.stack)
+    } else {
+      console.log('Connected to postgres db!')
+    }
+  })
+
+  // Select aLl from table watchlist
+  try {
+    const watchlist = await client.query('SELECT * FROM watchlist');
+    res.status(201).json(watchlist.rows);
+  } catch (err) {
+    res.status(400).json({
+      error: `${err})`,
+    });
+  }
+
+  // Kill connection
+  client.end()
+
 });
 
 module.exports = router;
