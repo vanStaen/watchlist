@@ -5,6 +5,10 @@ or `ressources for later dark days`.
 List of tutorials - Youtube or other - and sporadic new techs I plan to go though when time is found. </br>
 Instead of spreading those in my other repo's readme.md, todo list, or other bookmark, I think that grouping here make more sense.
 
+## Tech Stack
+
+The tech stack of this web app is **PERN** (PostgreSQL, Express, React and Node.js).
+
 ## Watchlist:
 
 List of any tutorial I stumble apon and think I should spend some time with:
