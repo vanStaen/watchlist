@@ -7,15 +7,6 @@
   - [ ] db connection
 - [ ] Front end
   - [ ] Gatsby?
-- [ ] db model
-  - [ ] Title: string
-  - [ ] Description: string
-  - [ ] ThumbnnailURL: string
-  - [ ] Link: string
-  - [ ] Tags: [string]
-  - [ ] Added: date
-  - [ ] Done: date
-  - [ ] Deleted: date
 
 ## Completed ✓
 
@@ -24,3 +15,4 @@
   - [x] Git repo
   - [x] PostgresQL database
   - [x] Heroku deployment
+- [x] db model
