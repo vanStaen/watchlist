@@ -8,15 +8,10 @@ require("dotenv/config");
 // Init Express
 const app = express();
 
+
 // Init Postgres
 const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true })
-
-// Test client querry
-client.query('SELECT * FROM ', (err, res) => {
-  //if (err) throw err
-  console.log(res)
-  //client.end()
-})
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; // I think this bypasses the SSL verification
 
 // Connect to Postgres 
 client.connect(err => {
@@ -25,6 +20,13 @@ client.connect(err => {
   } else {
     console.log('connected')
   }
+})
+
+// Test client querry
+client.query('SELECT * FROM watchlist', (err, res) => {
+  if (err) throw err
+  console.log(err, res)
+  client.end()
 })
 
 // Body Parser Middleware
