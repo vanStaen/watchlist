@@ -2,10 +2,6 @@
 
 ## To-dos:
 
-- [ ] Create a Project
-  - [x] Git repo
-  - [ ] PostgresQL database
-  - [x] Heroku deployment
 - [ ] Backend
   - [ ] Rest Api
   - [ ] db connection
@@ -24,3 +20,7 @@
 ## Completed ✓
 
 - [x] Migrate all list from other projects
+- [x] Create a Project
+  - [x] Git repo
+  - [x] PostgresQL database
+  - [x] Heroku deployment
