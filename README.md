@@ -22,6 +22,7 @@ List of any tutorial I stumble apon and think I should spend some time with:
 
 ### React
 
+- Axios interceptors: https://www.youtube.com/watch?v=ANvVndhOxIc
 - React JS : https://www.youtube.com/watch?v=sBws8MSXN7A </br>
 - Gatsby Crash Course: https://www.youtube.com/watch?v=6YhqQ2ZW1sc </br>
 - Messagerie app with react: https://www.youtube.com/watch?v=tBr-PybP_9c </br>
