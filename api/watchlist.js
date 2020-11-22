@@ -49,8 +49,7 @@ router.get("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const watchlist = await client.query('DELETE FROM watchlist WHERE id=' + req.params.id);
-    console.log(res.outputSize);
-    res.status(400).json({
+    res.status(200).json({
       success: `User #${req.params.id} has been deleted.`,
     });
   } catch (err) {
@@ -58,6 +57,55 @@ router.delete("/:id", async (req, res) => {
       error: `${err}`,
     });
   }
+});
+
+/* UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition; */
+
+// PATCH single data from watchlist (based on id)
+router.patch("/:id", async (req, res) => {
+
+  let updateField = '';
+  if (req.body.desc) {
+    updateField = updateField + "desc='" + req.body.desc + "',";
+  }
+  if (req.body.done) {
+    updateField = updateField + "done='" + req.body.done + "',";
+  }
+  if (req.body.link) {
+    updateField = updateField + "link='" + req.body.link + "',";
+  }
+  if (req.body.active !== undefined) {
+    updateField = updateField + "active=" + req.body.active + ",";
+  }
+  if (req.body.tags) {
+    updateField = updateField + "tags='" + req.body.tags + "',";
+  }
+  if (req.body.title) {
+    updateField = updateField + "title='" + req.body.title + "',";
+  }
+
+  const updateFieldEdited = updateField.slice(0, -1) // delete the last comma
+  const updateQuery = 'UPDATE watchlist SET ' + updateFieldEdited + ' WHERE id=' + req.params.id;
+
+  try {
+    const watchlist = await client.query(updateQuery);
+    if (watchlist.rowCount > 0) {
+      res.status(200).json({
+        success: `User #${req.params.id} has been updated.`,
+      });
+    } else {
+      res.status(400).json({
+        error: `No data found with id#${req.params.id}`,
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+
 });
 
 module.exports = router;
@@ -81,50 +129,6 @@ router.post("/", async (req, res) => {
     res.status(200).json(savedUser);
   } catch (err) {
     res.status(400).json({ message: err });
-  }
-});
-
-// Delete single user (based on id)
-router.delete("/:userID", async (req, res) => {
-  try {
-    const removedUser = await User.deleteOne({ _id: req.params.userID });
-    res.json({
-      msg: `User #${req.params.userID} has been deleted.`,
-    });
-  } catch (err) {
-    res.status(400).json({
-      error: `No user found with id#${req.params.userID} (error ${err})`,
-    });
-  }
-});
-
-// patch single user (based on id)
-router.patch("/:userID", async (req, res) => {
-  const updateField = {};
-  if (req.body.name) {
-    updateField.name = req.body.name;
-  }
-  if (req.body.email) {
-    updateField.email = req.body.email;
-  }
-  if (req.body.password) {
-    updateField.password = req.body.password;
-  }
-  if (req.body.active !== undefined) {
-    updateField.active = req.body.active;
-  }
-  try {
-    const updatedUser = await User.updateOne(
-      { _id: req.params.userID },
-      { $set: updateField }
-    );
-    res.status(200).json({
-      message: `User id#${req.params.userID} has been updated.`,
-    });
-  } catch (err) {
-    res.status(400).json({
-      error: `No user found with id#${req.params.userID} (error ${err})`,
-    });
   }
 });
 
