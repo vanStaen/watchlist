@@ -25,27 +25,27 @@ router.get("/", async (req, res) => {
       error: `${err})`,
     });
   }
-  // Close connection to postgres client
-  client.close()
 });
 
 // GET single data from watchlist (based on id)
 router.get("/:id", async (req, res) => {
   try {
     const watchlist = await client.query('SELECT * FROM watchlist WHERE id=' + req.params.id);
-    res.status(201).json(watchlist.rows);
+    if (watchlist.rows.length > 0) {
+      res.status(201).json(watchlist.rows);
+    } else {
+      res.status(400).json({
+        error: `No data found with id#${req.params.id}`,
+      });
+    }
   } catch (err) {
     res.status(400).json({
-      error: `No data found with id#${req.params.id} (error ${err})`,
+      error: `${err}`,
     });
   }
-  // Close connection to postgres client
-  client.close()
 });
 
 module.exports = router;
-
-
 
 /*
 // POST add users
