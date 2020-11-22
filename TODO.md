@@ -4,7 +4,12 @@
 
 - [ ] Backend
   - [ ] Rest Api
-  - [ ] db connection
+    - [x] GET all/watchlist
+    - [x] GET single/watchlist
+    - [ ] POST watchlist
+    - [ ] UPDATE watchlist
+    - [ ] DELETE watchlist
+  - [x] db connection
 - [ ] Front end
   - [ ] Gatsby?
 

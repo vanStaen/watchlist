@@ -1,24 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const { Pool, Client } = require("pg");
+const { Client } = require("pg");
 
-// GET all users
+// Init Postgres
+const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true })
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; // This bypasses the SSL verification
+
+// Connect to Postgres 
+client.connect(err => {
+  if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('Connected to postgres db!')
+  }
+})
+
+// GET all data from watchlist
 router.get("/", async (req, res) => {
-
-  // Init Postgres
-  const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true })
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; // This bypasses the SSL verification
-
-  // Connect to Postgres 
-  client.connect(err => {
-    if (err) {
-      console.error('connection error', err.stack)
-    } else {
-      console.log('Connected to postgres db!')
-    }
-  })
-
-  // Select aLl from table watchlist
   try {
     const watchlist = await client.query('SELECT * FROM watchlist');
     res.status(201).json(watchlist.rows);
@@ -27,27 +25,29 @@ router.get("/", async (req, res) => {
       error: `${err})`,
     });
   }
-
-  // close connection
+  // Close connection to postgres client
   client.close()
+});
 
+// GET single data from watchlist (based on id)
+router.get("/:id", async (req, res) => {
+  try {
+    const watchlist = await client.query('SELECT * FROM watchlist WHERE id=' + req.params.id);
+    res.status(201).json(watchlist.rows);
+  } catch (err) {
+    res.status(400).json({
+      error: `No data found with id#${req.params.id} (error ${err})`,
+    });
+  }
+  // Close connection to postgres client
+  client.close()
 });
 
 module.exports = router;
 
 
-/* GET single user (based on id)
-router.get("/:userID", async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userID);
-    res.json(user);
-  } catch (err) {
-    res.status(400).json({
-      error: `No user found with id#${req.params.userID} (error ${err})`,
-    });
-  }
-});
 
+/*
 // POST add users
 router.post("/", async (req, res) => {
   const user = new User({
