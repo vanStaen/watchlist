@@ -1,0 +1,34 @@
+{
+  "name": "watchlist",
+  "version": "1.0.0",
+  "description": "or `ressources for later dark days`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js",
+    "dev": "nodemon index",
+    "version": "heroku --version; git --version",
+    "deploy": "heroku login; heroku git:remote -a watchlist-cvs; git push heroku master",
+    "log": "heroku logs --tail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanStaen/watchlist.git"
+  },
+  "author": "cvanstaen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanStaen/watchlist/issues"
+  },
+  "homepage": "https://github.com/vanStaen/watchlist#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "lint": "^0.7.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1"
+  }
+}
