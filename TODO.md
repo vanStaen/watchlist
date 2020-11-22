@@ -2,14 +2,6 @@
 
 ## To-dos:
 
-- [ ] Backend
-  - [ ] Rest Api
-    - [x] GET all/watchlist
-    - [x] GET single/watchlist
-    - [ ] POST watchlist
-    - [x] UPDATE watchlist
-    - [x] DELETE watchlist
-  - [x] db connection
 - [ ] Front end
   - [ ] Gatsby?
 
@@ -21,3 +13,6 @@
   - [x] PostgresQL database
   - [x] Heroku deployment
 - [x] db model
+- [x] Backend
+  - [x] Rest Api
+  - [x] db connection

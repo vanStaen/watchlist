@@ -59,16 +59,12 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-/* UPDATE table_name
-SET column1 = value1, column2 = value2, ...
-WHERE condition; */
-
 // PATCH single data from watchlist (based on id)
 router.patch("/:id", async (req, res) => {
 
   let updateField = '';
-  if (req.body.desc) {
-    updateField = updateField + "desc='" + req.body.desc + "',";
+  if (req.body.detail) {
+    updateField = updateField + "detail='" + req.body.detail + "',";
   }
   if (req.body.done) {
     updateField = updateField + "done='" + req.body.done + "',";
@@ -108,29 +104,33 @@ router.patch("/:id", async (req, res) => {
 
 });
 
-module.exports = router;
-
-/*
-// POST add users
+// POST add to watchlist
 router.post("/", async (req, res) => {
-  const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.pwd,
-    active: true,
-  });
 
-  if (!user.name || !user.email || !user.password) {
-    return res.status(400).json({ error: `Error: Some field are missing.` });
+  // Title and Link are Mandatory
+  if (!req.body.title || !req.body.link) {
+    return res.status(400).json({ error: `Error: Some field are missing. Title and Link are mandatory to post a new entry.` });
   }
+
+  const title = req.body.title;
+  const link = req.body.link;
+  const detail = req.body.detail ? req.body.detail : req.body.title;
+  const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "null";
+  const insertQuery = `INSERT INTO watchlist (title, link, detail, tags) VALUES ('${title}', '${link}', '${detail}', ${tags})`;
 
   try {
-    const savedUser = await user.save();
-    res.status(200).json(savedUser);
+    const watchlist = await client.query(insertQuery);
+    console.log(watchlist)
+    res.status(201).json({ success: "Success" });
   } catch (err) {
-    res.status(400).json({ message: err });
+    res.status(400).json({
+      error: `${err})`,
+    });
   }
+
 });
 
-*/
+module.exports = router;
+
+
 
