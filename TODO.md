@@ -5,7 +5,7 @@
 - [ ] Create a Project
   - [x] Git repo
   - [ ] PostgresQL database
-  - [ ] Heroku deployment
+  - [x] Heroku deployment
 - [ ] Backend
   - [ ] Rest Api
   - [ ] db connection
