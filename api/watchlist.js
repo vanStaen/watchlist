@@ -28,8 +28,8 @@ router.get("/", async (req, res) => {
     });
   }
 
-  // Kill connection
-  client.end()
+  // close connection
+  client.close()
 
 });
 
