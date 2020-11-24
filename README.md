@@ -36,7 +36,6 @@ List of any tutorial I stumble apon and think I should spend some time with:
 ### Vanilla JS
 
 - Control a video with your scroll bar: https://www.youtube.com/watch?v=wLUJ9VNzZXo </br>
-- The async, await and promises: https://www.youtube.com/watch?v=vn3tm0quoqE </br>
 - JS basics: https://www.youtube.com/watch?v=hdI2bqOjy3c </br>
 - JS Array Methods: https://www.youtube.com/watch?v=R8rmfD9Y5-c </br>
 - JS tips: https://www.youtube.com/watch?v=Mus_vwhTCq0 </br>
@@ -85,3 +84,4 @@ All those video I spend time on. Always important to list, because more often as
 
 - Web developpement overview in 2020 : https://www.youtube.com/watch?v=0pThnRneDjw </br>
 - Introduction to database types: https://www.youtube.com/watch?v=W2Z7fbCLSTw</br>
+- The async, await and promises: https://www.youtube.com/watch?v=vn3tm0quoqE </br>
