@@ -9,6 +9,22 @@ Instead of spreading those in my other repo's readme.md, todo list, or other boo
 
 The tech stack of this web app is **PERN** (PostgreSQL, Express, React and Node.js).
 
+### Create React App
+
+Create React App uses Babel and webpack.
+When ready to deploy to production, run `npm run build` will create an optimized build of the app in the build folder.
+
+### Deploy on Heroku
+
+Two buildpack will be needed for Heroku to run back and Frontend:
+
+```
+heroku buildpacks:clear
+heroku buildpacks:add --index 1 heroku/nodejs
+heroku buildpacks:add --index 2 https://github.com/mars/create-react-app-buildpack
+
+```
+
 ## Watchlist:
 
 List of any tutorial I stumble apon and think I should spend some time with:
