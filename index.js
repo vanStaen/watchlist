@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 // Set Static folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "watchlist-frontend/public")));
 
 // Router to Watchlist API
 app.use("/watchlist", require("./api/watchlist"));
