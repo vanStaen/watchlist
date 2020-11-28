@@ -60,18 +60,6 @@ List of any tutorial I stumble apon and think I should spend some time with:
 - Card animation in JS: https://www.youtube.com/watch?v=XK7T3mY1V-w </br>
 - Animation on load : https://www.youtube.com/watch?v=sN93DRYkCO8 </br>
 
-### Other:
-
-- https://www.youtube.com/watch?v=eB0nUzAI7M8 (GitHub Actions) </br>
-- https://www.youtube.com/watch?v=hQWRp-FdTpc (SSH Crash Course) </br>
-- https://www.youtube.com/watch?v=4PZb0tkxuUk (GPG Encryption for beginners) </br>
-- https://www.youtube.com/watch?v=BwuLxPH8IDs (typescript 3h tutorial) </br>
-- https://www.youtube.com/watch?v=JTOJsU3FSD8 </br>
-- https://www.youtube.com/watch?v=ahCwqrYpIuM </br>
-- https://www.youtube.com/watch?v=iiADhChRriM </br>
-- https://www.youtube.com/watch?v=byW6l5T4mxs </br>
-- https://www.youtube.com/watch?v=vDXkpJw16os </br>
-
 ## Watched list:
 
 All those video I spend time on. Always important to list, because more often as wished, one will need to go have another refreshing look.
