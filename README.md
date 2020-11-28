@@ -35,11 +35,6 @@ List of any tutorial I stumble apon and think I should spend some time with:
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
 - Twitter Bot: https://www.youtube.com/watch?v=RF5_MPSNAtU </br>
 
-### Node
-
-- URL Shortener: https://www.youtube.com/watch?v=gq5yubc1u18 </br>
-- Passport for auth: https://www.youtube.com/watch?v=-RCnNyD0L-s </br>
-
 ### React
 
 - Axios interceptors: https://www.youtube.com/watch?v=ANvVndhOxIc
