@@ -6,6 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "node index.js",
+    "start-client": "react-scripts start",
     "dev": "nodemon index",
     "version": "heroku --version; git --version",
     "deploy": "heroku login; heroku git:remote -a watchlist-cvs; git push heroku main",
