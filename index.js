@@ -22,8 +22,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Set Static folder
-app.use(express.static(path.join(__dirname, "watchlist-frontend/public")));
+// Set up for React
+app.use(express.static(path.join(__dirname, "build")));
+app.get('/*', (req,res) => {res.sendFile(path.join(__dirname,"build", "index.html"));});
 
 // Router to Watchlist API
 app.use("/watchlist", require("./api/watchlist"));
