@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild":"",
+    "prebuild": "rm -rf ../build",
     "build": "react-scripts build",
     "postbuild": "mv build ../",
     "test": "react-scripts test",
