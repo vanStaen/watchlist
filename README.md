@@ -5,6 +5,8 @@ or `ressources for later dark days`.
 List of tutorials - Youtube or other - and sporadic new techs I plan to go though when time is found. </br>
 Instead of spreading those in my other repo's readme.md, todo list, or other bookmark, I think that grouping here make more sense.
 
+This project is deployed under _https://watchlist-cvs.herokuapp.com/_.
+
 ## Tech Stack
 
 The tech stack of this web app is **PERN** (PostgreSQL, Express, React and Node.js).
