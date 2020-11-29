@@ -50,7 +50,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const watchlist = await client.query('DELETE FROM watchlist WHERE id=' + req.params.id);
     res.status(200).json({
-      success: `User #${req.params.id} has been deleted.`,
+      success: `Entry #${req.params.id} has been deleted.`,
     });
   } catch (err) {
     res.status(400).json({
@@ -89,7 +89,7 @@ router.patch("/:id", async (req, res) => {
     const watchlist = await client.query(updateQuery);
     if (watchlist.rowCount > 0) {
       res.status(200).json({
-        success: `User #${req.params.id} has been updated.`,
+        success: `Entry #${req.params.id} has been updated.`,
       });
     } else {
       res.status(400).json({
