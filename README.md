@@ -18,14 +18,10 @@ When ready to deploy to production, run `npm run build` will create an optimized
 
 ### Deploy on Heroku
 
-Two buildpack will be needed for Heroku to run back and Frontend:
+It is needed to run `npm run build` from the `frontend` folder before deploying the app.
+Heroku will automatically detect node.js as buildpack. when deploying.
 
-```
-heroku buildpacks:clear
-heroku buildpacks:add --index 1 heroku/nodejs
-heroku buildpacks:add --index 2 https://github.com/mars/create-react-app-buildpack
-
-```
+TODO: see if `"start-client": "react-scripts start"` does anything.
 
 ## Watchlist:
 
