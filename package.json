@@ -10,7 +10,7 @@
     "dev": "nodemon index",
     "version": "heroku --version; git --version",
     "buildfe": "cd frontend/; npm run build; cd ../; git commit -a -m \"deploy\"; git push;",
-    "deploy": "npm run buildfe; heroku login; heroku git:remote -a watchlist-cvs; git push heroku main",
+    "deploy": "npm run buildfe; heroku git:remote -a watchlist-cvs; git push heroku main",
     "log": "heroku logs --tail"
   },
   "repository": {
