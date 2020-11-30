@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Spin, Card } from "antd";
+import Entry from './Entry/Entry'
 import axios from 'axios';
 
 class Entries extends Component {
@@ -42,23 +43,10 @@ class Entries extends Component {
   render() {
     const entries = this.state.watchlistEntries.map(entry => {
       const youtubeVideoID = "https://img.youtube.com/vi/" + entry.link.split('&')[0].split('=')[1] + "/0.jpg"
-      return (
-         <Card title={entry.title} 
-         hoverable
-         bordered
-         style={{ width: 500, marginBottom: 30 }}
-        >
-          {/*<p>Link: {entry.link}</p>        
-          <p>Detail: {entry.detail}</p>        
-          <p>Added : {entry.added}</p>   
-          <p>Tags : {entry.tags}</p>*/}
-          <a href={entry.link} target="_blank" title={entry.detail}>
-            <img src={youtubeVideoID} alt="Italian Trulli" width="440"/>
-          </a>
-        </Card>);
+      return <Entry entry={entry}/>
     })
     return (
-      <div>
+      <div style={{margin: 30}}>
         { this.state.isLoading ?
           <div className="entries__spinner">
             <Spin size="large" />
