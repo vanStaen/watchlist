@@ -1,15 +1,13 @@
 import './App.css';
+
 import Entries from './component/Entries';
 
 function App() {
   return (
-    <div className="App">   
+    <div className="App">
       <header className="App-header">
-        <p>
-          Watchlist 
-        </p>
-        <Entries/>
-      </header>    
+        <Entries />
+      </header>
     </div>
   );
 }

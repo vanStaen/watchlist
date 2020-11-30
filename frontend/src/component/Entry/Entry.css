@@ -2,10 +2,25 @@
   text-align: center;
 }
 
-.card__spinner {
-  text-align: center;
-  border-radius: 4px;
-  padding-top: 160px;
-  width: 240px;
-  height: 320px;
+.entry-card {
+  width: 350px;
+  height: 327px; /* (350 x 0.75) + 65 */
+  margin-bottom: 30px;
+}
+
+.entry-card__meta {
+  background-color: #fff;
+  color: #000;
+  width: 350px;
+  height: 65px;
+  display: table-cell; 
+  vertical-align: middle;
+  font-size: 17px;
+  border: 2px solid #000;
+}
+
+.entry-card__img {
+  position: relative;
+  width: 350px;
+  height: 262px;
 }
