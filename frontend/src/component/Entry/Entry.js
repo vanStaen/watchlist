@@ -24,13 +24,14 @@ const Entry = (props) => {
       bordered
       style={{ width: width, height: width * 0.75 + 65, marginBottom: 30}}
       cover={
-        <Image
-          alt={props.title}
+        <a href={props.entry.link} target="_blank">
+        <img
+          alt={props.entry.title}
           src={youtubeVideoID}
-          placeholder={spinnerFormated}
           width={width}
           height={width * 0.75}
-        />}
+        />
+        </a>}
     >
       <Meta title={props.entry.title} />
     </Card>
