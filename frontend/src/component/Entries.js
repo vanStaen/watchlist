@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Row } from "antd";
 import Entry from './Entry/Entry'
 import axios from 'axios';
+
+import './Entries.css';
 
 class Entries extends Component {
 
@@ -54,9 +55,9 @@ class Entries extends Component {
             <div style={{ fontSize: 18 }}>Loading ... </div>
           </div>
           :
-          (<Row justify={"space-around"}>
+          (<div className='Entries__Main'>
             {entries}
-          </Row>)
+          </div>)
         }
 
       </div>
