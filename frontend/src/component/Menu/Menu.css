@@ -10,7 +10,6 @@
 
 .MenuItem {
   width: 32px;
-  padding: 12px 0px;
   margin: 0px 0px 20px 0px;
   background-color: #2B3131;
   text-align: center;
@@ -19,23 +18,28 @@
   letter-spacing: 2px;
 }
 
-.MenuItem_straight {
-  border-right: 1.5px solid #666;
-  border-top: 1.5px solid #666;
-  border-bottom: 1px solid #000;
-  border-top-right-radius: 10px;
-}
-
 .MenuItem:hover {
   background-color: #808989;
   color: #363636;
 }
 
+.MenuItem_straight {
+  padding: 8px 0px;
+  border-right: 1.5px solid #666;
+  border-top: 1.5px solid #666;
+  border-bottom: 1px solid #222;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 3px;
+}
+
+
 .MenuItem__turned {
+  padding: 12px 0px;
   border-left: 1.5px solid #666;
   border-bottom: 1.5px solid #666;
-  border-top: 1px solid #000;
+  border-top: 1px solid #222;
   border-bottom-left-radius: 10px;
+  border-top-left-radius: 3px;
   writing-mode: tb-rl;
   transform: rotate(-180deg);
 }
