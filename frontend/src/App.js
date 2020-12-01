@@ -2,6 +2,7 @@ import './App.css';
 
 import Entries from './component/Entries/Entries';
 import Menu from './component/Menu/Menu';
+import Footer from './component/Footer/Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Menu />
         <Entries />
       </header>
+      <Footer />
     </div>
   );
 }

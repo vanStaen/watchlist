@@ -1,0 +1,10 @@
+.Footer__Main {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #2B3131;
+    color: white;
+    text-align: center;
+  }

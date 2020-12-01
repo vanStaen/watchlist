@@ -21,6 +21,7 @@
 .MenuItem:hover {
   background-color: #808989;
   color: #363636;
+  border: 1px solid #333;
 }
 
 .MenuItem_straight {
