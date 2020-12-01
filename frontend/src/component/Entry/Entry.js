@@ -1,7 +1,4 @@
 import React from 'react'
-import { Image, Card } from 'antd'
-import { Spin } from 'antd'
-
 import './Entry.css'
 
 const Entry = props => {

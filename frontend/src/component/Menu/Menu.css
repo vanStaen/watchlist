@@ -1,0 +1,30 @@
+.Menu {
+  width: 100%;
+  height: auto;
+  border: 0px solid red;
+  position: fixed;
+  left: 0px;
+  top: 50px;
+  text-align: left;
+}
+
+.MenuItem {
+  width: 32px;
+  padding: 12px 0px;
+  margin: 0px 0px 20px 0px;
+  background-color: #363636;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom-left-radius: 10px;
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+  text-align: center;
+  color: #ccc;
+  font-size: 18px;
+}
+
+.MenuItem:hover {
+  background-color: #ccc;
+  color: #363636;
+}
