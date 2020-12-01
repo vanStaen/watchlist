@@ -5,14 +5,14 @@
 }
 
 .entry-card__meta {
-  background-color: #fff;
+  background-color: #D5D8D8;
   color: #000;
   width: 350px;
   height: 65px;
   display: table-cell; 
   vertical-align: middle;
   font-size: 17px;
-  border: 2px solid #000;
+  border: 1px solid #000;
 }
 
 .entry-card__img {
