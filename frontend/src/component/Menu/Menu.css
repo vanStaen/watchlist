@@ -13,18 +13,28 @@
   padding: 12px 0px;
   margin: 0px 0px 20px 0px;
   background-color: #363636;
-  border-left: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  border-bottom-left-radius: 10px;
-  writing-mode: tb-rl;
-  transform: rotate(-180deg);
   text-align: center;
   color: #ccc;
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.MenuItem_straight {
+  border-right: 1.5px solid #666;
+  border-top: 1.5px solid #666;
+  border-bottom: 1px solid #000;
+  border-top-right-radius: 10px;
 }
 
 .MenuItem:hover {
   background-color: #ccc;
   color: #363636;
+}
+
+.MenuItem__turned {
+  border-left: 1.5px solid #666;
+  border-bottom: 1.5px solid #666;
+  border-top: 1px solid #000;
+  border-bottom-left-radius: 10px;
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
 }

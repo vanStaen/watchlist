@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Entry from './Entry/Entry'
+import Entry from '../Entry/Entry'
 import axios from 'axios';
 
 import './Entries.css';

@@ -8,7 +8,7 @@ const Menu = () => {
     <div className='Menu'>
       <MenuItem title="add" />
       <MenuItem title="filter" />
-      <MenuItem title="info" />
+      <MenuItem title="?" straightText={true} />
     </div>
   )
 }
