@@ -10,15 +10,22 @@ const Entry = props => {
 
   return (
     <div className='entry-card'>
-      <a href={props.entry.link} target='_blank'>
-        <img
-          className='entry-card__img'
-          alt={props.entry.title}
-          src={youtubeVideoID}
-        />
-      </a>
-      <div className="entry-card__meta">
-        {props.entry.title}
+      <div className='entry-card-inner'>
+        <div className='entry-card-front'>
+          <a href={props.entry.link} target='_blank'>
+            <img
+              className='entry-card__img'
+              alt={props.entry.title}
+              src={youtubeVideoID}
+            />
+          </a>
+          <div className="entry-card__meta">
+            {props.entry.title}
+          </div>
+        </div>
+        <div className='entry-card-back'>
+          Backside
+        </div>
       </div>
     </div>
   )
