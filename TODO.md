@@ -2,8 +2,7 @@
 
 ## To-dos:
 
-- [ ] Front end
-  - [ ] Gatsby?
+- [ ] Get Auto description from youtube
 
 ## Completed ✓
 
