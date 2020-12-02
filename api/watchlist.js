@@ -115,6 +115,7 @@ router.post("/", async (req, res) => {
 
   const youtubeVideoID = req.body.link.split('&')[0].split('=')[1];
   const titleFromYoutube = await getTitleFromYoutubeVideo(youtubeVideoID);
+  console.log(titleFromYoutube);
   const link = req.body.link;
   const title = req.body.title ? req.body.title : titleFromYoutube;
   const detail = req.body.detail ? req.body.detail : title;
