@@ -23,7 +23,8 @@ const Entry = props => {
 
   const handlerFlipDivBack = () => {
     const id = 'inner' + props.entry.id;
-    document.getElementById(id).style.transform = "rotateY(-180deg)";
+    console.log('HERE');
+    document.getElementById(id).style.transform = "rotateY(0deg)";
   }
 
   const deleteEntry = (entryID) => {
@@ -62,13 +63,13 @@ const Entry = props => {
   return (
     <div className='entry-card' id={props.entry.id}>
       <div className='entry-card-inner' id={'inner' + props.entry.id}>
-        <div className='entry-card-front'>
+        <div className='entry-card-front' onClick={handlerFlipDiv}>
           <img
             className='entry-card__img'
             alt={props.entry.title}
             src={youtubeVideoID}
           />
-          <div className="entry-card__meta" onClick={handlerFlipDiv}>
+          <div className="entry-card__meta">
             {props.entry.title}
           </div>
         </div>
@@ -79,12 +80,13 @@ const Entry = props => {
             {tags}
           </div>
           <a href={props.entry.link} target='_blank'>
-            <Tag className='watchOnYoutube' icon={<YoutubeOutlined />} color="#cd201f">
-              Watch on Youtube
-            </Tag>
+            <div className="entry-card__play">
+              <YoutubeOutlined />
+              &nbsp; Watch on Youtube
+            </div>
           </a>
           <Tooltip title="Delete video from the list">
-            <Button type="primary" danger size='small' shape="circle" icon={<DeleteOutlined />} onClick={handlerDelete} />
+            <Button type="primary" danger size='large' shape="circle" icon={<DeleteOutlined />} onClick={handlerDelete} />
           </Tooltip>
         </div>
       </div>

@@ -17,6 +17,21 @@
   border: 1px solid #000;
 }
 
+.entry-card__play {
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  background-color: #cd201f;
+  color: #fff;
+  width: 350px;
+  height: 65px;
+  display: table-cell; 
+  vertical-align: middle;
+  font-size: 22px;
+  border: 1px solid #000;
+  padding: 15px 10px;
+}
+
 .entry-card__img {
   position: relative;
   width: 350px;
