@@ -12,7 +12,6 @@ class Entries extends Component {
   }
 
   componentDidMount() {
-    console.log('component did mount')
     this.loadEntries();
   }
 
@@ -30,7 +29,6 @@ class Entries extends Component {
     }
     // fetch Entries
     fetchEntries().then((resData) => {
-      console.log(resData)
       const entries = resData;
       this.setState({ watchlistEntries: entries });
       this.setState({ isLoading: false });
@@ -44,7 +42,7 @@ class Entries extends Component {
   render() {
     const entries = this.state.watchlistEntries.map(entry => {
       const youtubeVideoID = "https://img.youtube.com/vi/" + entry.link.split('&')[0].split('=')[1] + "/0.jpg"
-      return <Entry entry={entry} />
+      return <Entry key={entry.id} entry={entry} />
     })
     return (
       <div style={{ margin: 30 }}>
