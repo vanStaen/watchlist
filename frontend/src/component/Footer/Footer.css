@@ -1,10 +1,11 @@
 .Footer__Main {
-    position: fixed;
+    position: relative;
+    text-transform: capitalize;
     left: 0;
     bottom: 0;
     padding: 10px;
     width: 100%;
     background-color: #2B3131;
-    color: white;
+    color: #ccc;
     text-align: center;
   }

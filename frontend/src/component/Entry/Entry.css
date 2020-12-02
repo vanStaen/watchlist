@@ -3,7 +3,8 @@
   height: 327px; /* (350 x 0.75) + 65 */
   background-color: transparent;
   margin: 0px 15px 30px 15px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  font-size: 17px;
+  text-transform: capitalize;
 }
 
 .entry-card__meta {
@@ -13,7 +14,6 @@
   height: 65px;
   display: table-cell; 
   vertical-align: middle;
-  font-size: 17px;
   border: 1px solid #000;
 }
 
@@ -23,8 +23,6 @@
   height: 262px;
 }
 
-
-/* This container is needed to position the front and back side */
 .entry-card-inner {
   position: relative;
   width: 100%;
@@ -34,16 +32,40 @@
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.entry-card__img:hover .entry-card-inner {
+.entry-card:active .entry-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
 .entry-card-front, .entry-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+}
+
+.entry-card-back {
+  background-color: #2B3131;
+  color: #fff;
+  border: 1px solid #000;
+  transform: rotateY(180deg);
+  padding: 30px 10px;
+}
+
+.entry-card-back__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.entry-card-back__tag {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 5px;
+  text-transform: uppercase;
+  background-color: #C0C4C4;
+  color: #000;
+  font-size: 12px;
 }

@@ -8,6 +8,12 @@ const Entry = props => {
     props.entry.link.split('&')[0].split('=')[1] +
     '/0.jpg'
 
+  const tags = props.entry.tags.map(tag => {
+    return <div className='entry-card-back__tag'>{tag} </div>;
+  });
+
+  const date = new Date(props.entry.added).toLocaleDateString();
+
   return (
     <div className='entry-card'>
       <div className='entry-card-inner'>
@@ -24,7 +30,11 @@ const Entry = props => {
           </div>
         </div>
         <div className='entry-card-back'>
-          Backside
+          added: {date}<br />
+          {props.entry.detail}
+          <div className='entry-card-back__tags'>
+            {tags}
+          </div>
         </div>
       </div>
     </div>
