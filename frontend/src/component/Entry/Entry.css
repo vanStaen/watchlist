@@ -33,7 +33,7 @@
   box-shadow: 5px 5px 10px #2B3131;
 }
 
-.entry-card:active .entry-card-inner {
+.entry-card:hover .entry-card-inner {
   transform: rotateY(180deg);
 }
 
