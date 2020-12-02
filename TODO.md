@@ -2,6 +2,7 @@
 
 ## To-dos:
 
+- [ ] Create a custom navbar
 - [ ] Add element to array in Postgres
 
 ## Completed ✓
@@ -16,3 +17,4 @@
   - [x] Rest Api
   - [x] db connection
 - [x] Get Auto description from youtube
+- [x] Create Basic FrontEnd
