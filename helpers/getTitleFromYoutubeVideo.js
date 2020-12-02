@@ -9,7 +9,6 @@ async function getTitleFromYoutubeVideo(videoID) {
     const resTitle = await axios.get(googleApiUrl)
         .then(response => {
             title = response.data.items[0].snippet.title;
-            console.log(title)
             return title;
         })
         .catch(error => {
