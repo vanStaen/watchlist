@@ -2,7 +2,7 @@
 
 ## To-dos:
 
-- [ ] Get Auto description from youtube
+- [ ] Add element to array in Postgres
 
 ## Completed ✓
 
@@ -15,3 +15,4 @@
 - [x] Backend
   - [x] Rest Api
   - [x] db connection
+- [x] Get Auto description from youtube
