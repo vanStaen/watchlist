@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const getTitleFromYoutubeVideo = require('../helpers/getTitleFromYoutubeVideo')
 const { Client } = require("pg");
 
 // Init Postgres
@@ -108,19 +109,20 @@ router.patch("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
 
   // Title and Link are Mandatory
-  if (!req.body.title || !req.body.link) {
-    return res.status(400).json({ error: `Error: Some field are missing. Title and Link are mandatory to post a new entry.` });
+  if (!req.body.link) {
+    return res.status(400).json({ error: `Error: Some field are missing. You need to pass at least a Link to create a new entry.` });
   }
 
-  const title = req.body.title;
+  const youtubeVideoID = req.body.link.split('&')[0].split('=')[1];
+  const titleFromYoutube = await getTitleFromYoutubeVideo(youtubeVideoID);
   const link = req.body.link;
-  const detail = req.body.detail ? req.body.detail : req.body.title;
+  const title = req.body.title ? req.body.title : titleFromYoutube;
+  const detail = req.body.detail ? req.body.detail : title;
   const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "null";
   const insertQuery = `INSERT INTO watchlist (title, link, detail, tags) VALUES ('${title}', '${link}', '${detail}', ${tags})`;
 
   try {
     const watchlist = await client.query(insertQuery);
-    console.log(watchlist)
     res.status(201).json({ success: "Success" });
   } catch (err) {
     res.status(400).json({
