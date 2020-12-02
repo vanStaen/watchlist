@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <div className='Footer__Main'>
-            Watchlist - Clément van Staen 2020
+            Watchlist by <a href="http://www.clementvanstaen.com" target="_blank" >Clément van Staen</a>, 2020
         </div>
     )
 }
