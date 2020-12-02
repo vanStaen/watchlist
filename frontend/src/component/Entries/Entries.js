@@ -23,7 +23,7 @@ class Entries extends Component {
         method: "GET",
       });
       if ((response.status !== 200) & (response.status !== 201)) {
-        throw new Error("Unauthenticated!");
+        throw new Error("Error!");
       }
       const entries = await response.data;
       return entries;
