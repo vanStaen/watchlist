@@ -30,7 +30,7 @@ const Entry = props => {
     const deleteEntryRequest = async (entryID) => {
       const response = await axios({
         url: 'https://watchlist-cvs.herokuapp.com/watchlist/' + entryID,
-        method: "DEL",
+        method: "DELETE",
       });
       if ((response.status !== 200) & (response.status !== 201)) {
         throw new Error("Error!");
