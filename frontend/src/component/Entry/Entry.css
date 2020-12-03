@@ -42,6 +42,10 @@
   backface-visibility: hidden;
 }
 
+.entry-card-front {
+  cursor: pointer;
+}
+
 .entry-card-back {
   background-color: #2B3131;
   color: #fff;
