@@ -64,9 +64,6 @@ router.delete("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
 
   let updateField = '';
-  if (req.body.detail) {
-    updateField = updateField + "detail='" + req.body.detail + "',";
-  }
   if (req.body.done) {
     updateField = updateField + "done='" + req.body.done + "',";
   }
@@ -117,9 +114,8 @@ router.post("/", async (req, res) => {
   const titleFromYoutube = await getTitleFromYoutubeVideo(youtubeVideoID);
   const link = req.body.link;
   const title = req.body.title ? req.body.title : titleFromYoutube;
-  const detail = req.body.detail ? req.body.detail : title;
   const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "null";
-  const insertQuery = `INSERT INTO watchlist (title, link, detail, tags) VALUES ('${title}', '${link}', '${detail}', ${tags})`;
+  const insertQuery = `INSERT INTO watchlist (title, link, tags) VALUES ('${title}', '${link}', ${tags})`;
 
   try {
     const watchlist = await client.query(insertQuery);
