@@ -1,17 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Tooltip, message } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { Tooltip, message } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
 
-const DeleteButton = props => {
+import './Actions.css';
 
-    const handlerDelete = (e) => {
-        deleteEntry(props.id);
-        message.error({
-            content: `Watchlist entry id ${props.id} has been deleted.`,
-            icon: <DeleteOutlined />,
+const CheckButton = props => {
+
+    const handlerCheck = (e) => {
+        //deleteEntry(props.id);
+        message.success({
+            content: `Watchlist entry id ${props.id} has been marked as done.`,
+            icon: <CheckOutlined />,
         });
-        document.getElementById(props.id).style.display = "none";
     }
 
     const deleteEntry = (entryID) => {
@@ -36,12 +37,12 @@ const DeleteButton = props => {
     };
 
     return (
-        <Tooltip title="Delete video from the list">
-            <div className="Button Button__delete" onClick={handlerDelete}>
-                <DeleteOutlined />
+        <Tooltip title="Mark video as viewed">
+            <div className="Button Button__check" onClick={handlerCheck}>
+                <CheckOutlined />
             </div>
         </Tooltip>
     )
 }
 
-export default DeleteButton
+export default CheckButton
