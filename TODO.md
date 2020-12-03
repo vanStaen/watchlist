@@ -7,10 +7,16 @@
 - [ ] Get/Set rating for RateThisVideo component
 - [ ] Handle editing of tags 
   - [ ] Add/Delete single element to array in Postgres
-  - [ ] Delete event from tag
-  - [ ] Input element to add tag  
+  - [x] Delete event from tag
+  - [x] Input element to add tag  
   - [ ] Autocomplete on adding?
-  - [ ] Add on presskey enter
+  - [x] Add on presskey enter
+  - [ ] Do all the calls
+- [ ] Handle editing of Title
+- [ ] Handle votes
+  - [x] Create new column vote
+  - [x] Create vote input
+  - [ ] Handle vote querry
 
 ## Completed ✓
 
