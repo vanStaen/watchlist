@@ -1,11 +1,15 @@
 import { React, useState } from 'react';
 import { Tag, Input } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+
 import './Tags.css'
 
 const Tags = props => {
     const [tags, setTags] = useState(props.tags);
     const [editInputIndex, setEditInputIndex] = useState(-1);
     const [editInputValue, setEditInputValue] = useState('');
+    const [inputVisible, setInputVisible] = useState(false);
+    const [inputValue, setInputValue] = useState('');
 
     const handlerDeleteTag = (e) => {
         console.log(e);
@@ -13,16 +17,30 @@ const Tags = props => {
 
     const saveEditInputRef = input => {
         console.log(input);
-        //this.editInput = input;
+    };
+
+    const saveInputRef = input => {
+        console.log(input);
     };
 
     const handleEditInputChange = e => {
-        console.log(e.target.value);
         setEditInputValue(e.target.value);
     };
 
-    const handleEditInputConfirm = () => {
-        console.log(confirm);
+    const handleEditInputConfirm = e => {
+        console.log(e.target.value);
+    };
+
+    const handleInputChange = e => {
+        setEditInputValue(e.target.value);
+    };
+
+    const handleInputConfirm = e => {
+        console.log(e.target.value);
+    };
+
+    const showInput = () => {
+        setInputVisible(true);
     };
 
     const formattedTags = tags.map((tag, index) => {
@@ -53,11 +71,9 @@ const Tags = props => {
             >
                 <span
                     onDoubleClick={e => {
-                        if (index !== 0) {
-                            setEditInputIndex(index);
-                            setEditInputValue(tag);
-                            e.preventDefault();
-                        }
+                        setEditInputIndex(index);
+                        setEditInputValue(tag);
+                        e.preventDefault();
                     }}
                 >
                     {isLongTag ? `${tag.slice(0, 20)}...` : tag}
@@ -69,12 +85,30 @@ const Tags = props => {
     return (
         <div className='tags'>
             {formattedTags}
+
+            {inputVisible && (
+                <Input
+                    ref={saveInputRef}
+                    type="text"
+                    size="small"
+                    className="tag-input"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onBlur={handleInputConfirm}
+                    onPressEnter={handleInputConfirm}
+                />
+            )}
+            {!inputVisible && (
+                <Tag className="site-tag-plus" onClick={showInput}>
+                    <PlusOutlined /> New Tag
+                </Tag>
+            )}
+
         </div>
     )
 }
 
 export default Tags
-
 
 
 

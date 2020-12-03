@@ -20,8 +20,10 @@
   }
 
 .site-tag-plus {
-    background: #fff;
+    background: #2B3131;
+    color: #ccc;
     border-style: dashed;
+    border-color: #aaa;
   }
 
   .edit-tag {
