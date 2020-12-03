@@ -1,5 +1,5 @@
 import React from 'react';
-import { YoutubeOutlined } from '@ant-design/icons';
+import { YoutubeOutlined, UndoOutlined } from '@ant-design/icons';
 import Tags from './Tags/Tags'
 import DeleteButton from './Actions/DeleteButton'
 import RateThisVideo from './Actions/RateThisVideo'
@@ -21,8 +21,8 @@ const Entry = props => {
   const handlerFlipDivBack = () => {
     const id = 'inner' + props.entry.id;
     const img = 'img' + props.entry.id;
-    //document.getElementById(img).style.display = "block";
-    //document.getElementById(id).style.transform = "rotateY(0deg)";
+    document.getElementById(img).style.display = "block";
+    document.getElementById(id).style.transform = "rotateY(0deg)";
   }
 
   const youtubeVideoID =
@@ -47,8 +47,10 @@ const Entry = props => {
             {props.entry.title}
           </div>
         </div>
-        <div className='entry-card-back' onClick={handlerFlipDivBack}>
-
+        <div className='entry-card-back'>
+          <div className='entry-card-back-corner' onClick={handlerFlipDivBack}>
+            <UndoOutlined />
+          </div>
           <div className='entry-card-back__header'>
             <div className='entry-card-back__header-added'>Added: {date}</div>
             {isLongTitle ? `${props.entry.title.slice(0, 35)}...` : props.entry.title}
