@@ -23,15 +23,21 @@ const Tags = props => {
         setTags(tags);
         setEditInputIndex(-1)
         setEditInputValue('');
+        setInputValue('');
+        setInputVisible(false);
     };
 
     const handleEditInputCancel = e => {
         setEditInputIndex(-1)
         setEditInputValue('');
+        setInputValue('');
+        setInputVisible(false);
     };
 
     const handleEditInputChange = e => {
         setEditInputValue(e.target.value);
+        setInputValue('');
+        setInputVisible(false);
     };
 
     const handleInputChange = e => {
@@ -47,15 +53,21 @@ const Tags = props => {
         }
         setInputValue('');
         setInputVisible(false);
+        setEditInputIndex(-1)
+        setEditInputValue('');
     };
 
     const handleInputCancel = () => {
         setInputValue('');
         setInputVisible(false);
+        setEditInputIndex(-1)
+        setEditInputValue('');
     };
 
     const showInput = () => {
         setInputVisible(true);
+        setEditInputIndex(-1)
+        setEditInputValue('');
     };
 
     const formattedTags = tags.map((tag, index) => {
