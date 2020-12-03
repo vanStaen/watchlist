@@ -31,6 +31,7 @@ const Entry = props => {
     '/0.jpg'
 
   const date = new Date(props.entry.added).toLocaleDateString();
+  const isLongTitle = props.entry.title.length > 35;
 
   return (
     <div className='entry-card' id={props.entry.id}>
@@ -50,7 +51,7 @@ const Entry = props => {
 
           <div className='entry-card-back__header'>
             <div className='entry-card-back__header-added'>Added: {date}</div>
-            {props.entry.detail}
+            {isLongTitle ? `${props.entry.title.slice(0, 35)}...` : props.entry.title}
           </div>
 
           <div className='entry-card-back__tags'>
