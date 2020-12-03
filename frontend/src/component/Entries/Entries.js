@@ -48,7 +48,7 @@ class Entries extends Component {
       <div style={{ margin: 30 }}>
         { this.state.isLoading ?
           <div className="entries__spinner">
-            <img src="https://avatars0.githubusercontent.com/u/12551446" className="App-logo" alt="logo" />
+            <img src="https://avatars0.githubusercontent.com/u/12551446" className="Entries-loader " alt="Loading" />
             <br />
             <div style={{ fontSize: 18 }}>Loading ... </div>
           </div>
