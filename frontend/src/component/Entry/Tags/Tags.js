@@ -11,10 +11,9 @@ const Tags = props => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
-    const handlerDeleteTag = (e, deleteTagIndex) => {
-        let oldTags = tags;
-        let deletedTags = oldTags.splice(deleteTagIndex, 1);
-        setTags(oldTags);
+    const handlerDeleteTag = (removedTag) => {
+        const newtags = tags.filter(tag => tag !== removedTag);
+        setTags(newtags);
     }
 
     const handleEditInputConfirm = e => {
@@ -61,7 +60,7 @@ const Tags = props => {
                 key={index}
                 color="#2B3131"
                 closable
-                onClose={e => handlerDeleteTag(e, index)}
+                onClose={() => handlerDeleteTag(tag)}
             >
                 <span
                     onDoubleClick={e => {
