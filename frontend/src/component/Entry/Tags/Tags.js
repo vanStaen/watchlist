@@ -27,11 +27,18 @@ const Tags = props => {
     };
 
     const handleInputChange = e => {
-        //setEditInputValue(e.target.value);
+        setInputValue(e.target.value);
     };
 
     const handleInputConfirm = e => {
-        //console.log(e.target.value);
+        const inputValue = e.target.value;
+        console.log(inputValue);
+        if (inputValue && tags.indexOf(inputValue) === -1) {
+            const newtags = [...tags, inputValue];
+            console.log(newtags);
+            setTags(newtags);
+        }
+        setInputVisible(false);
     };
 
     const showInput = () => {

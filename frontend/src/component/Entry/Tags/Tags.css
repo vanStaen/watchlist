@@ -1,7 +1,7 @@
 .tags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     vertical-align: middle; 
     padding: 10px 10px;
     width: 100%;
