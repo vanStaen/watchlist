@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Tag, Button, Tooltip } from 'antd';
 import { YoutubeOutlined, DeleteOutlined } from '@ant-design/icons';
+import Tags from './Tags/Tags'
 import './Entry.css'
 
 
@@ -54,10 +55,6 @@ const Entry = props => {
     props.entry.link.split('&')[0].split('=')[1] +
     '/0.jpg'
 
-  const tags = props.entry.tags.map(tag => {
-    return <Tag closable onClose={handlerDeleteTag} >{tag}</Tag>;
-  });
-
   const date = new Date(props.entry.added).toLocaleDateString();
 
   return (
@@ -76,9 +73,7 @@ const Entry = props => {
         <div className='entry-card-back' onClick={handlerFlipDivBack}>
           added: {date}<br />
           {props.entry.detail}
-          <div className='entry-card-back__tags'>
-            {tags}
-          </div>
+          <Tags tags={props.entry.tags} id={props.entry.id} />
           <a href={props.entry.link} target='_blank'>
             <div className="entry-card__play">
               <YoutubeOutlined />
@@ -90,7 +85,7 @@ const Entry = props => {
           </Tooltip>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 

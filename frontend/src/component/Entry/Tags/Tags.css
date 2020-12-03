@@ -1,0 +1,13 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 10px;
+    width: 100%;
+    border: 2px solid red;
+  }
+  
+  .ant-tag {
+    margin: 3px 3px;
+  }
+  
