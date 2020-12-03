@@ -3,7 +3,14 @@
 ## To-dos:
 
 - [ ] Create a custom navbar
-- [ ] Add element to array in Postgres
+- [ ] Set Entry to done on button click 
+- [ ] Get/Set rating for RateThisVideo component
+- [ ] Handle editing of tags 
+  - [ ] Add/Delete single element to array in Postgres
+  - [ ] Delete event from tag
+  - [ ] Input element to add tag  
+  - [ ] Autocomplete on adding?
+  - [ ] Add on presskey enter
 
 ## Completed ✓
 
