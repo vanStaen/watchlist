@@ -11,15 +11,23 @@ const Tags = props => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
-    const handlerDeleteTag = (removedTag) => {
-        const newtags = tags.filter(tag => tag !== removedTag);
-        setTags(newtags);
+    const handlerDeleteTag = (deleteTagIndex) => {
+        let oldTags = tags;
+        let deletedTags = oldTags.splice(deleteTagIndex, 1);
+        setTags(oldTags);
+        console.log(oldTags);
     }
 
     const handleEditInputConfirm = e => {
         tags[editInputIndex] = editInputValue;
         setTags(tags);
         setEditInputIndex(-1)
+        setEditInputValue('');
+    };
+
+    const handleEditInputCancel = e => {
+        setEditInputIndex(-1)
+        setEditInputValue('');
     };
 
     const handleEditInputChange = e => {
@@ -32,12 +40,17 @@ const Tags = props => {
 
     const handleInputConfirm = e => {
         const inputValue = e.target.value;
-        console.log(inputValue);
         if (inputValue && tags.indexOf(inputValue) === -1) {
             const newtags = [...tags, inputValue];
             console.log(newtags);
             setTags(newtags);
         }
+        setInputValue('');
+        setInputVisible(false);
+    };
+
+    const handleInputCancel = () => {
+        setInputValue('');
         setInputVisible(false);
     };
 
@@ -55,7 +68,7 @@ const Tags = props => {
                     className="tag-input"
                     value={editInputValue}
                     onChange={handleEditInputChange}
-                    onBlur={handleEditInputConfirm}
+                    onBlur={handleEditInputCancel}
                     onPressEnter={handleEditInputConfirm}
                 />
             );
@@ -67,7 +80,7 @@ const Tags = props => {
                 key={index}
                 color="#2B3131"
                 closable
-                onClose={() => handlerDeleteTag(tag)}
+                onClose={() => handlerDeleteTag(index)}
             >
                 <span
                     onDoubleClick={e => {
@@ -94,7 +107,7 @@ const Tags = props => {
                     className="tag-input"
                     value={inputValue}
                     onChange={handleInputChange}
-                    onBlur={handleInputConfirm}
+                    onBlur={handleInputCancel}
                     onPressEnter={handleInputConfirm}
                 />
             )}
