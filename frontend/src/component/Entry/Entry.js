@@ -1,21 +1,11 @@
 import React from 'react';
-import axios from 'axios';
-import { Tag, Button, Tooltip } from 'antd';
-import { YoutubeOutlined, DeleteOutlined } from '@ant-design/icons';
+import { YoutubeOutlined } from '@ant-design/icons';
 import Tags from './Tags/Tags'
+import DeleteButton from './Actions/DeleteButton'
 import './Entry.css'
 
 
 const Entry = props => {
-
-  const handlerDeleteTag = (e) => {
-    console.log(e);
-  }
-
-  const handlerDelete = (e) => {
-    deleteEntry(props.entry.id);
-    document.getElementById(props.entry.id).style.display = "none";
-  }
 
   const handlerFlipDiv = () => {
     const id = 'inner' + props.entry.id;
@@ -27,28 +17,6 @@ const Entry = props => {
     console.log('HERE');
     document.getElementById(id).style.transform = "rotateY(0deg)";
   }
-
-  const deleteEntry = (entryID) => {
-    const deleteEntryRequest = async (entryID) => {
-      const response = await axios({
-        url: 'https://watchlist-cvs.herokuapp.com/watchlist/' + entryID,
-        method: "DELETE",
-      });
-      if ((response.status !== 200) & (response.status !== 201)) {
-        throw new Error("Error!");
-      }
-      const entries = await response.data;
-      return entries;
-    }
-    // fetch Entries
-    deleteEntryRequest(entryID).then((resData) => {
-      console.log(resData)
-    }
-    ).catch(error => {
-      console.log(error.message);
-    });
-  };
-
 
   const youtubeVideoID =
     'https://img.youtube.com/vi/' +
@@ -71,18 +39,27 @@ const Entry = props => {
           </div>
         </div>
         <div className='entry-card-back' onClick={handlerFlipDivBack}>
-          added: {date}<br />
-          {props.entry.detail}
-          <Tags tags={props.entry.tags} id={props.entry.id} />
+
+          <div className='entry-card-back__header'>
+            <div className='entry-card-back__header-added'>Added: {date}</div>
+            {props.entry.detail}
+          </div>
+
+          <div className='entry-card-back__tags'>
+            <Tags tags={props.entry.tags} id={props.entry.id} />
+          </div>
+
+          <div className='entry-card-back__actions'>
+            <DeleteButton id={props.entry.id} />
+          </div>
+
           <a href={props.entry.link} target='_blank'>
-            <div className="entry-card__play">
+            <div className="entry-card-back__play">
               <YoutubeOutlined />
               &nbsp; Watch on Youtube
             </div>
           </a>
-          <Tooltip title="Delete video from the list">
-            <Button type="primary" danger size='large' shape="circle" icon={<DeleteOutlined />} onClick={handlerDelete} />
-          </Tooltip>
+
         </div>
       </div>
     </div>
