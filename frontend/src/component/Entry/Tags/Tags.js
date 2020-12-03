@@ -11,32 +11,28 @@ const Tags = props => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
-    const handlerDeleteTag = (e) => {
-        console.log(e);
+    const handlerDeleteTag = (e, deleteTagIndex) => {
+        let oldTags = tags;
+        let deletedTags = oldTags.splice(deleteTagIndex, 1);
+        setTags(oldTags);
     }
 
-    const saveEditInputRef = input => {
-        console.log(input);
-    };
-
-    const saveInputRef = input => {
-        console.log(input);
+    const handleEditInputConfirm = e => {
+        tags[editInputIndex] = editInputValue;
+        setTags(tags);
+        setEditInputIndex(-1)
     };
 
     const handleEditInputChange = e => {
         setEditInputValue(e.target.value);
     };
 
-    const handleEditInputConfirm = e => {
-        console.log(e.target.value);
-    };
-
     const handleInputChange = e => {
-        setEditInputValue(e.target.value);
+        //setEditInputValue(e.target.value);
     };
 
     const handleInputConfirm = e => {
-        console.log(e.target.value);
+        //console.log(e.target.value);
     };
 
     const showInput = () => {
@@ -44,14 +40,11 @@ const Tags = props => {
     };
 
     const formattedTags = tags.map((tag, index) => {
-
         const isLongTag = tag.length > 20;
-
         if (editInputIndex === index) {
             return (
                 <Input
-                    ref={saveEditInputRef}
-                    key={tag}
+                    key={index}
                     size="small"
                     className="tag-input"
                     value={editInputValue}
@@ -66,8 +59,9 @@ const Tags = props => {
             <Tag
                 className="edit-tag"
                 key={index}
+                color="#2B3131"
                 closable
-                onClose={handlerDeleteTag}
+                onClose={e => handlerDeleteTag(e, index)}
             >
                 <span
                     onDoubleClick={e => {
@@ -84,11 +78,11 @@ const Tags = props => {
 
     return (
         <div className='tags'>
+
             {formattedTags}
 
             {inputVisible && (
                 <Input
-                    ref={saveInputRef}
                     type="text"
                     size="small"
                     className="tag-input"

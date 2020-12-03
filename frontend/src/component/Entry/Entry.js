@@ -6,6 +6,7 @@ import RateThisVideo from './Actions/RateThisVideo'
 import CheckButton from './Actions/CheckButton'
 import './Entry.css'
 
+// Card Flip:  https://3dtransforms.desandro.com/card-flip
 
 const Entry = props => {
 
