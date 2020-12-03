@@ -20,8 +20,8 @@ const Entry = props => {
   const handlerFlipDivBack = () => {
     const id = 'inner' + props.entry.id;
     const img = 'img' + props.entry.id;
-    document.getElementById(img).style.display = "block";
-    document.getElementById(id).style.transform = "rotateY(0deg)";
+    //document.getElementById(img).style.display = "block";
+    //document.getElementById(id).style.transform = "rotateY(0deg)";
   }
 
   const youtubeVideoID =
