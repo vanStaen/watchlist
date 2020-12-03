@@ -1,13 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Tooltip } from 'antd';
+import { Button, Tooltip, message } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-
 
 const DeleteButton = props => {
 
     const handlerDelete = (e) => {
         deleteEntry(props.id);
+        message.error({
+            content: `Watchlist entry id ${props.id} has been deleted.`,
+            icon: <DeleteOutlined />,
+        });
         document.getElementById(props.id).style.display = "none";
     }
 
