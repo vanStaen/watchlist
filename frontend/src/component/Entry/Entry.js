@@ -1,10 +1,11 @@
 import React from 'react';
 import { YoutubeOutlined, UndoOutlined } from '@ant-design/icons';
-import Tags from './Tags/Tags'
-import DeleteButton from './Actions/DeleteButton'
-import RateThisVideo from './Actions/RateThisVideo'
-import CheckButton from './Actions/CheckButton'
-import './Entry.css'
+import Tags from './Tags/Tags';
+import DeleteButton from './Actions/DeleteButton';
+import RateThisVideo from './Actions/RateThisVideo';
+import CheckButton from './Actions/CheckButton';
+import Title from './Title/Title';
+import './Entry.css';
 
 // Card Flip:  https://3dtransforms.desandro.com/card-flip
 
@@ -31,7 +32,6 @@ const Entry = props => {
     '/0.jpg'
 
   const date = new Date(props.entry.added).toLocaleDateString();
-  const isLongTitle = props.entry.title.length > 35;
 
   return (
     <div className='entry-card' id={props.entry.id}>
@@ -53,7 +53,7 @@ const Entry = props => {
           </div>
           <div className='entry-card-back__header'>
             <div className='entry-card-back__header-added'>#{props.entry.id}, Added: {date}</div>
-            {isLongTitle ? `${props.entry.title.slice(0, 35)}...` : props.entry.title}
+            <Title id={props.entry.id} title={props.entry.title} />
           </div>
 
           <div className='entry-card-back__tags'>
