@@ -11,6 +11,11 @@ const Tags = props => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
+    const patchTagsInDB = (tags) => {
+        console.log('id', props.id);
+        console.log('tags', tags);
+    }
+
     const handlerDeleteTag = (deleteTagIndex) => {
         let oldTags = tags;
         let deletedTags = oldTags.splice(deleteTagIndex, 1);
@@ -19,8 +24,9 @@ const Tags = props => {
     }
 
     const handleEditInputConfirm = e => {
-        tags[editInputIndex] = editInputValue;
+        tags[editInputIndex] = editInputValue.toLowerCase();
         setTags(tags);
+        patchTagsInDB(tags);
         setEditInputIndex(-1)
         setEditInputValue('');
         setInputValue('');
@@ -45,11 +51,12 @@ const Tags = props => {
     };
 
     const handleInputConfirm = e => {
-        const inputValue = e.target.value;
+        const inputValue = e.target.value.toLowerCase();
         if (inputValue && tags.indexOf(inputValue) === -1) {
             const newtags = [...tags, inputValue];
             console.log(newtags);
             setTags(newtags);
+            patchTagsInDB(tags);
         }
         setInputValue('');
         setInputVisible(false);
