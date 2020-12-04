@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { Tooltip, Rate } from 'antd';
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ const RateThisVideo = props => {
     const patchRatingInDB = (value) => {
         async function patchEntry() {
             const response = await axios({
-                url: 'https://watchlist-cvs.herokuapp.com/watchlist/' + props.id,
+                url: process.env.REACT_APP_API_URL + '/' + props.id,
                 method: 'PATCH',
                 data: { 'rate': value }
             });
@@ -22,7 +22,7 @@ const RateThisVideo = props => {
         // fetch Entries
         patchEntry(value).then((resData) => {
             const patchResult = resData;
-            console.log("Sucess", patchResult);
+            //console.log("Sucess", patchResult);
         }
         ).catch(error => {
             console.log("error", error.message);

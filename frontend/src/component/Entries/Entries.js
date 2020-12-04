@@ -18,7 +18,7 @@ class Entries extends Component {
   loadEntries() {
     async function fetchEntries() {
       const response = await axios({
-        url: 'https://watchlist-cvs.herokuapp.com/watchlist',
+        url: process.env.REACT_APP_API_URL,
         method: "GET",
       });
       if ((response.status !== 200) & (response.status !== 201)) {
