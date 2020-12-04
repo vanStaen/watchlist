@@ -28,21 +28,18 @@ const Tags = props => {
         // fetch Entries
         patchEntry(tags).then((resData) => {
             const patchResult = resData;
-            console.log("Sucess", patchResult);
+            //console.log("Sucess", patchResult);
         }
         ).catch(error => {
             console.log("error", error.message);
         });
-
-        console.log('id', props.id);
-        console.log('tags', tags);
     }
 
 
     const handlerDeleteTag = (deleteTagIndex) => {
         let oldTags = tags;
         let deletedTags = oldTags.splice(deleteTagIndex, 1);
-        patchTagsInDB(tags);
+        patchTagsInDB(oldTags);
         setTags(oldTags);
     }
 
@@ -77,9 +74,8 @@ const Tags = props => {
         const inputValue = e.target.value.toLowerCase();
         if (inputValue && tags.indexOf(inputValue) === -1) {
             const newtags = [...tags, inputValue];
-            console.log(newtags);
+            patchTagsInDB(newtags);
             setTags(newtags);
-            patchTagsInDB(tags);
         }
         setInputValue('');
         setInputVisible(false);
