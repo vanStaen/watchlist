@@ -49,13 +49,14 @@ const CheckButton = props => {
         setEditMode(false);
     }
 
-    const isLongTitle = editInputValue > 35;
+    const longStringIsLongerThan = 35;
+    const isLongTitle = editInputValue.length > longStringIsLongerThan;
 
     return (
         <>
             {!editMode &&
                 (<div onDoubleClick={handlerShowEditInput}>
-                    {isLongTitle ? `${editInputValue.slice(0, 35)}...` : editInputValue}
+                    {isLongTitle ? `${editInputValue.slice(0, longStringIsLongerThan)}...` : editInputValue}
                 </div>)}
             {editMode &&
                 (<Tooltip title="Press enter to save your cahnges">

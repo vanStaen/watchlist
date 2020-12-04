@@ -1,15 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Tooltip, message } from 'antd';
+import { Popconfirm, Tooltip, notification } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
 const DeleteButton = props => {
+    const [confirmVisible, setconfirmVisible] = React.useState(false);
 
     const handlerDelete = (e) => {
+        setconfirmVisible(false);
         deleteEntry(props.id);
-        message.error({
-            content: `Watchlist entry id ${props.id} has been deleted.`,
+        notification.error({
+            message: 'Deleted!',
+            description:
+                `Watchlist entry id ${props.id} has been deleted.`,
             icon: <DeleteOutlined />,
+            placement: "bottomRight",
         });
         document.getElementById(props.id).style.display = "none";
     }
@@ -35,12 +40,30 @@ const DeleteButton = props => {
         });
     };
 
+    const showDeleteConfirm = () => {
+        setconfirmVisible(true);
+    };
+
+    const handleCancelDelete = () => {
+        setconfirmVisible(false);
+    };
+
     return (
         <Tooltip title="Delete video from the list">
-            <div className="Button Button__delete" onClick={handlerDelete}>
-                <DeleteOutlined />
-            </div>
-        </Tooltip>
+            <Popconfirm
+                title="Are you sure? This is forever."
+                placement="bottom"
+                visible={confirmVisible}
+                onConfirm={handlerDelete}
+                onCancel={handleCancelDelete}
+                okText="Yes"
+                cancelText="No"
+            >
+                <div className="Button Button__delete" onClick={showDeleteConfirm}>
+                    <DeleteOutlined />
+                </div>
+            </Popconfirm>
+        </Tooltip >
     )
 }
 
