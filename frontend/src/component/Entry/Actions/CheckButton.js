@@ -1,6 +1,6 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import axios from 'axios';
-import { Tooltip, message } from 'antd';
+import { Tooltip, notification } from 'antd';
 import { CheckOutlined, MinusOutlined } from '@ant-design/icons';
 
 import './Actions.css';
@@ -33,10 +33,14 @@ const CheckButton = props => {
     const handlerCheck = (value) => {
         patchIsdone(value);
         props.setIsDone(value);
+        const messageTitle = value ? 'Watched! Let\'s forget it for now.' : 'Let me come back to this again ...';
         const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
-        message.success({
-            content: `Watchlist entry #${props.id} ${messageText}.`,
-            icon: <CheckOutlined />,
+
+        notification.success({
+            message: messageTitle,
+            description:
+                `Watchlist entry #${props.id} ${messageText}.`,
+            placement: "bottomRight",
         });
     }
 

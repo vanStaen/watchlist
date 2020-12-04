@@ -12,7 +12,7 @@ const DeleteButton = props => {
         notification.error({
             message: 'Deleted!',
             description:
-                `Watchlist entry id ${props.id} has been deleted.`,
+                `Watchlist entry #${props.id} has been deleted.`,
             icon: <DeleteOutlined />,
             placement: "bottomRight",
         });

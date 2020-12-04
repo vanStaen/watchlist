@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { Tooltip, Rate } from 'antd';
+import { Tooltip, Rate, notification } from 'antd';
 import axios from 'axios';
 
 const RateThisVideo = props => {
@@ -29,6 +29,12 @@ const RateThisVideo = props => {
 
     const handlerRateThisVideo = value => {
         patchRatingInDB(value);
+        notification.success({
+            message: 'Rating saved!',
+            description:
+                `Your ${value}-star rating of entry #${props.id} has been successfully saved.`,
+            placement: "bottomRight",
+        });
     }
 
     return (
