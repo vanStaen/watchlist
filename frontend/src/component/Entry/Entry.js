@@ -1,5 +1,5 @@
-import React from 'react';
-import { YoutubeOutlined, UndoOutlined } from '@ant-design/icons';
+import { React, useState } from 'react';
+import { YoutubeOutlined, UndoOutlined, CheckOutlined } from '@ant-design/icons';
 import Tags from './Tags/Tags';
 import DeleteButton from './Actions/DeleteButton';
 import RateThisVideo from './Actions/RateThisVideo';
@@ -7,21 +7,23 @@ import CheckButton from './Actions/CheckButton';
 import Title from './Title/Title';
 import './Entry.css';
 
-// Card Flip:  https://3dtransforms.desandro.com/card-flip
-
 const Entry = props => {
 
+  const [isDone, setIsDone] = useState(props.entry.done);
+
+  const id = 'inner' + props.entry.id;
+  const img = 'img' + props.entry.id;
+  const img_done = 'done' + props.entry.id;
+
   const handlerFlipDiv = () => {
-    const id = 'inner' + props.entry.id;
-    const img = 'img' + props.entry.id;
     document.getElementById(id).style.transform = "translateX(-100%) rotateY(-180deg)";
+    isDone ? setTimeout(function () { document.getElementById(img_done).style.display = "none"; }, 500) : '';
     setTimeout(function () { document.getElementById(img).style.display = "none"; }, 500);
 
   }
 
   const handlerFlipDivBack = () => {
-    const id = 'inner' + props.entry.id;
-    const img = 'img' + props.entry.id;
+    isDone ? document.getElementById(img_done).style.display = "block" : '';
     document.getElementById(img).style.display = "block";
     document.getElementById(id).style.transform = "rotateY(0deg)";
   }
@@ -37,6 +39,9 @@ const Entry = props => {
     <div className='entry-card' id={props.entry.id}>
       <div className='entry-card-inner' id={'inner' + props.entry.id}>
         <div className='entry-card-front' onClick={handlerFlipDiv}>
+          {isDone && (<div className='entry-card-front__done' id={'done' + props.entry.id} >
+            < CheckOutlined />
+          </div>)}
           <img
             className='entry-card__img'
             id={'img' + props.entry.id}
@@ -48,7 +53,7 @@ const Entry = props => {
           </div>
         </div>
         <div className='entry-card-back'>
-          <div className='entry-card-back-corner' onClick={handlerFlipDivBack}>
+          <div className='entry-card-back-corner' onClick={handlerFlipDivBack} >
             <UndoOutlined />
           </div>
           <div className='entry-card-back__header'>
@@ -61,7 +66,7 @@ const Entry = props => {
           </div>
 
           <div className='entry-card-back__actions'>
-            <CheckButton id={props.entry.id} />
+            <CheckButton id={props.entry.id} setIsDone={setIsDone} isDone={isDone} />
             <RateThisVideo id={props.entry.id} rate={props.entry.rate} />
             <DeleteButton id={props.entry.id} />
           </div>

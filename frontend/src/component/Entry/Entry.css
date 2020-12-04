@@ -1,3 +1,5 @@
+/* how to Card Flip:  https://3dtransforms.desandro.com/card-flip */
+
 .entry-card {
   width: 350px;
   height: 327px; /* (350 x 0.75) + 65 */
@@ -44,6 +46,17 @@
 
 .entry-card-front {
   cursor: pointer;
+}
+
+.entry-card-front__done {
+  position: fixed;
+  width: 350px;
+  height: 262px;
+  color: green;
+  font-size: 175px;
+  background-color: #fff;
+  opacity: 0.25;
+  z-index: 10;
 }
 
 .entry-card-back {

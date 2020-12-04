@@ -6,7 +6,6 @@ import { CheckOutlined, MinusOutlined } from '@ant-design/icons';
 import './Actions.css';
 
 const CheckButton = props => {
-    const [isDone, setIsDone] = useState(props.done);
 
     const patchIsdone = (value) => {
         async function patchEntry() {
@@ -33,7 +32,7 @@ const CheckButton = props => {
 
     const handlerCheck = (value) => {
         patchIsdone(value);
-        setIsDone(value);
+        props.setIsDone(value);
         const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
         message.success({
             content: `Watchlist entry #${props.id} ${messageText}.`,
@@ -43,14 +42,14 @@ const CheckButton = props => {
 
     return (
         <>
-            {!isDone &&
+            {!props.isDone &&
                 (
                     <Tooltip title="Mark video as viewed">
                         <div className="Button Button__check" onClick={() => handlerCheck(true)}>
                             <CheckOutlined />
                         </div>
                     </Tooltip>)}
-            {isDone &&
+            {props.isDone &&
                 (
                     <Tooltip title="Unmark video as viewed">
                         <div className="Button Button__uncheck" onClick={() => handlerCheck(false)}>
