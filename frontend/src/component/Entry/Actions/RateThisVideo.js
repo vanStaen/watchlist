@@ -1,10 +1,8 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { Tooltip, Rate } from 'antd';
 import axios from 'axios';
 
 const RateThisVideo = props => {
-
-    const [rateValue, setRateValue] = useState(props.rate);
 
     const patchRatingInDB = (value) => {
         async function patchEntry() {
@@ -31,7 +29,6 @@ const RateThisVideo = props => {
 
     const handlerRateThisVideo = value => {
         patchRatingInDB(value);
-        setRateValue(value);
     }
 
     return (
