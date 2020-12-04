@@ -19,7 +19,7 @@ client.connect(err => {
 // GET all data from watchlist
 router.get("/", async (req, res) => {
   try {
-    const watchlist = await client.query('SELECT * FROM watchlist');
+    const watchlist = await client.query('SELECT * FROM watchlist ORDER BY id ASC');
     res.status(201).json(watchlist.rows);
   } catch (err) {
     res.status(400).json({
