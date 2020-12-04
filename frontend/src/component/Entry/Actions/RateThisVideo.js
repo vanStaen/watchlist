@@ -1,17 +1,17 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Tooltip, Rate } from 'antd';
 import axios from 'axios';
 
 const RateThisVideo = props => {
 
-    const [rateValue, setRateValue] = useState(props.rate / 2);
+    const [rateValue, setRateValue] = useState(props.rate);
 
-    const patchRatingInDB = () => {
+    const patchRatingInDB = (value) => {
         async function patchEntry() {
             const response = await axios({
                 url: 'https://watchlist-cvs.herokuapp.com/watchlist/' + props.id,
                 method: 'PATCH',
-                data: { 'rate': rateValue }
+                data: { 'rate': value }
             });
             if ((response.status !== 200) & (response.status !== 201)) {
                 throw new Error("Error!");
@@ -20,7 +20,7 @@ const RateThisVideo = props => {
             return patchResult;
         }
         // fetch Entries
-        patchEntry().then((resData) => {
+        patchEntry(value).then((resData) => {
             const patchResult = resData;
             console.log("Sucess", patchResult);
         }
@@ -30,13 +30,13 @@ const RateThisVideo = props => {
     }
 
     const handlerRateThisVideo = value => {
-        setRateValue(value * 2);
-        patchRatingInDB();
+        patchRatingInDB(value);
+        setRateValue(value);
     }
 
     return (
         <Tooltip title="Delete video from the list">
-            <Rate allowHalf defaultValue={rateValue} onChange={handlerRateThisVideo} />
+            <Rate defaultValue={props.rate} onChange={handlerRateThisVideo} />
         </Tooltip>
     )
 }
