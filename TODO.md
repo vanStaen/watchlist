@@ -6,7 +6,8 @@
 - [ ] Set Entry to done on button click 
 - [ ] Get/Set rating for RateThisVideo component
 - [ ] Handle editing of tags 
-  - [ ] Add/Delete single element to array in Postgres
+  - [ ] ~~Add/Delete single element to array in Postgres~~
+  - [x] Always update the full array of strings
   - [x] Delete event from tag
   - [x] Input element to add tag  
   - [ ] Autocomplete on adding?
