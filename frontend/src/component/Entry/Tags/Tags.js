@@ -72,7 +72,12 @@ const Tags = props => {
 
     const handleInputConfirm = e => {
         const inputValue = e.target.value.toLowerCase();
-        if (inputValue && tags.indexOf(inputValue) === -1) {
+        if (tags === undefined || tags === null) {
+            const newtags = [inputValue];
+            patchTagsInDB(newtags);
+            setTags(newtags);
+        }
+        else if (inputValue && tags.indexOf(inputValue) === -1) {
             const newtags = [...tags, inputValue];
             patchTagsInDB(newtags);
             setTags(newtags);
@@ -96,7 +101,8 @@ const Tags = props => {
         setEditInputValue('');
     };
 
-    const formattedTags = tags.map((tag, index) => {
+
+    const formattedTags = tags ? tags.map((tag, index) => {
         const isLongTag = tag.length > 20;
         if (editInputIndex === index) {
             return (
@@ -131,7 +137,7 @@ const Tags = props => {
                 </span>
             </Tag>
         );
-    });
+    }) : [];
 
     return (
         <div className='tags'>
