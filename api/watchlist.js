@@ -74,7 +74,7 @@ router.patch("/:id", async (req, res) => {
     updateField = updateField + "active=" + req.body.active + ",";
   }
   if (req.body.tags) {
-    updateField = updateField + "tags= ARRAY ['" + req.body.tags.toLowerCase().join("','") + "'],";
+    updateField = updateField + "tags= ARRAY ['" + req.body.tags.join("','") + "'],";
   }
   if (req.body.title) {
     updateField = updateField + "title='" + req.body.title + "',";
@@ -114,7 +114,7 @@ router.post("/", async (req, res) => {
   const titleFromYoutube = await getTitleFromYoutubeVideo(youtubeVideoID);
   const link = req.body.link;
   const title = req.body.title ? req.body.title : titleFromYoutube;
-  const tags = req.body.tags ? "ARRAY ['" + req.body.tags.toLowerCase().join("','") + "']" : "null";
+  const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "null";
   const insertQuery = `INSERT INTO watchlist (title, link, tags) VALUES ('${title}', '${link}', ${tags})`;
 
   try {
