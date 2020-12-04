@@ -3,7 +3,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    padding: 6px 6.5px 6px 6px;
+    padding: 7px 6.5px 6px 6px;
     display: table-cell; 
     vertical-align: middle; 
     cursor: pointer;
@@ -16,6 +16,11 @@
 
 .Button__check {
     background-color: green;
+}
+
+.Button__uncheck {
+    padding: 8px 7px 6px 6px;
+    background-color: #666;
 }
 
 .Button__delete {

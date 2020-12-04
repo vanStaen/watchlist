@@ -64,7 +64,7 @@ router.delete("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
 
   let updateField = '';
-  if (req.body.done) {
+  if (req.body.done !== undefined) {
     updateField = updateField + "done='" + req.body.done + "',";
   }
   if (req.body.link) {

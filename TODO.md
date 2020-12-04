@@ -3,8 +3,6 @@
 ## To-dos:
 
 - [ ] Create a custom navbar
-- [ ] Set Entry to done on button click 
-
 - [ ] Handle editing of Title
 - [ ] Handle votes
   - [x] Create new column vote
@@ -33,3 +31,4 @@
   - [ ] ~~Add/Delete single element of array in Postgres~~
   - [ ] ~~Autocomplete on adding?~~
 - [x] Get/Set rating for RateThisVideo component
+- [x] Set Entry to done on button click

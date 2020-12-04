@@ -1,47 +1,63 @@
-import React from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
 import { Tooltip, message } from 'antd';
-import { CheckOutlined } from '@ant-design/icons';
+import { CheckOutlined, MinusOutlined } from '@ant-design/icons';
 
 import './Actions.css';
 
 const CheckButton = props => {
+    const [isDone, setIsDone] = useState(props.done);
 
-    const handlerCheck = (e) => {
-        //deleteEntry(props.id);
-        message.success({
-            content: `Watchlist entry id ${props.id} has been marked as done.`,
-            icon: <CheckOutlined />,
-        });
-    }
-
-    const deleteEntry = (entryID) => {
-        const deleteEntryRequest = async (entryID) => {
+    const patchIsdone = (value) => {
+        async function patchEntry() {
             const response = await axios({
-                url: 'https://watchlist-cvs.herokuapp.com/watchlist/' + entryID,
-                method: "DELETE",
+                url: process.env.REACT_APP_API_URL + '/' + props.id,
+                method: 'PATCH',
+                data: { 'done': value }
             });
             if ((response.status !== 200) & (response.status !== 201)) {
                 throw new Error("Error!");
             }
-            const entries = await response.data;
-            return entries;
+            const patchResult = await response.data;
+            return patchResult;
         }
         // fetch Entries
-        deleteEntryRequest(entryID).then((resData) => {
-            console.log(resData)
+        patchEntry(value).then((resData) => {
+            const patchResult = resData;
+            console.log("Sucess", patchResult);
         }
         ).catch(error => {
-            console.log(error.message);
+            console.log("error", error.message);
         });
-    };
+    }
+
+    const handlerCheck = (value) => {
+        patchIsdone(value);
+        setIsDone(value);
+        const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
+        message.success({
+            content: `Watchlist entry #${props.id} ${messageText}.`,
+            icon: <CheckOutlined />,
+        });
+    }
 
     return (
-        <Tooltip title="Mark video as viewed">
-            <div className="Button Button__check" onClick={handlerCheck}>
-                <CheckOutlined />
-            </div>
-        </Tooltip>
+        <>
+            {!isDone &&
+                (
+                    <Tooltip title="Mark video as viewed">
+                        <div className="Button Button__check" onClick={() => handlerCheck(true)}>
+                            <CheckOutlined />
+                        </div>
+                    </Tooltip>)}
+            {isDone &&
+                (
+                    <Tooltip title="Unmark video as viewed">
+                        <div className="Button Button__uncheck" onClick={() => handlerCheck(false)}>
+                            <MinusOutlined />
+                        </div>
+                    </Tooltip>)}
+        </>
     )
 }
 
