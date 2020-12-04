@@ -42,18 +42,6 @@ List of any tutorial I stumble apon and think I should spend some time with:
 - React hook and router: Responsive website: https://www.youtube.com/watch?v=3nLTB_E6XAM </br>
 - Todolist in react and vamilla JS: https://www.youtube.com/watch?v=dtKciwk_si4 </br>
 
-### Vanilla JS
-
-- Control a video with your scroll bar: https://www.youtube.com/watch?v=wLUJ9VNzZXo </br>
-- JS basics: https://www.youtube.com/watch?v=hdI2bqOjy3c </br>
-- JS Array Methods: https://www.youtube.com/watch?v=R8rmfD9Y5-c </br>
-- JS tips: https://www.youtube.com/watch?v=Mus_vwhTCq0 </br>
-- JS vanilla UX project: https://www.youtube.com/watch?v=c5SIG7Ie0dM </br>
-- 10 hack JS project: https://www.youtube.com/watch?v=8GPPJpiLqHk </br>
-- Card animation in JS: https://www.youtube.com/watch?v=XK7T3mY1V-w </br>
-- Animation on load : https://www.youtube.com/watch?v=sN93DRYkCO8 </br>
-
-
 ##  Cool links, not on Youtube, yet to implement.
 
 - Configure Iam user and s3 bucket on AWS: https://imranhsayed.medium.com/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65 </br>

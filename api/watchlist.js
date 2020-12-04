@@ -118,7 +118,7 @@ router.post("/", async (req, res) => {
   const link = req.body.link;
   const title = req.body.title ? req.body.title : titleFromYoutube;
   const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "null";
-  const done = req.body.done;
+  const done = req.body.done ? req.body.done : null;
   const insertQuery = `INSERT INTO watchlist (title, link, tags, done) VALUES ('${title}', '${link}', ${tags}, ${done})`;
 
   try {
