@@ -52,7 +52,7 @@ const Entry = props => {
             <UndoOutlined />
           </div>
           <div className='entry-card-back__header'>
-            <div className='entry-card-back__header-added'>Added: {date}</div>
+            <div className='entry-card-back__header-added'>#{props.entry.id}, Added: {date}</div>
             {isLongTitle ? `${props.entry.title.slice(0, 35)}...` : props.entry.title}
           </div>
 
