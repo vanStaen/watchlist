@@ -76,7 +76,7 @@ router.patch("/:id", async (req, res) => {
   if (req.body.tags) {
     updateField = updateField + "tags= ARRAY ['" + req.body.tags.join("','") + "'],";
   }
-  if (req.body.rate) {
+  if (req.body.rate !== undefined) {
     updateField = updateField + "rate=" + req.body.rate + ",";
   }
   if (req.body.title) {
