@@ -53,32 +53,10 @@ List of any tutorial I stumble apon and think I should spend some time with:
 - Card animation in JS: https://www.youtube.com/watch?v=XK7T3mY1V-w </br>
 - Animation on load : https://www.youtube.com/watch?v=sN93DRYkCO8 </br>
 
-## Watched list:
 
-All those video I spend time on. Always important to list, because more often as wished, one will need to go have another refreshing look.
+##  Cool links, not on Youtube, yet to implement.
 
-### Node:
-
-- Basic of node.js: https://www.youtube.com/watch?v=ENrzD9HAZK4 </br>
-- Creating a basic server with node.js: https://www.youtube.com/watch?v=fBNz5xF-Kx4 </br>
-- Creating a API with JS Express: https://www.youtube.com/watch?v=L72fhGm1tfE</br>
-- Basic MongoDB : https://www.youtube.com/watch?v=-56x56UppqQ</br>
-- Restful Api With Node.js Express & MongoDB : https://www.youtube.com/watch?v=vjf774RKrLc </br>
-- Introduction to GrahQL: https://www.youtube.com/watch?v=7giZGFDGnkc </br>
-- JWT Auth in Node : https://www.youtube.com/watch?v=mbsmsi7l3r4 </br>
-- Uploading files with Multer : https://www.youtube.com/watch?v=srPXMt1Q0nY </br>
 - Configure Iam user and s3 bucket on AWS: https://imranhsayed.medium.com/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65 </br>
 - Upload file on s3 bucket: https://codeytek.com/course/upload-files-images-on-amazon-web-services-course/ </br>
-- Connect node to postgres with PG : https://www.youtube.com/watch?v=ldYcgPKEZC8 </br>
-
-### React :
-
-- React File Uploader (with Axios) : https://www.youtube.com/watch?v=b6Oe2puTdMQ </br>
 - Overwrite AntD color scheme : https://medium.com/@okoriechinedusunday/a-baby-guide-to-overriding-antdesign-theme-and-color-aa6df1f85e0 </br>
 - Spinner on imnage load: https://www.javascriptstuff.com/detect-image-load/ </br>
-
-### Others:
-
-- Web developpement overview in 2020 : https://www.youtube.com/watch?v=0pThnRneDjw </br>
-- Introduction to database types: https://www.youtube.com/watch?v=W2Z7fbCLSTw</br>
-- The async, await and promises: https://www.youtube.com/watch?v=vn3tm0quoqE </br>
