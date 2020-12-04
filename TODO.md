@@ -4,15 +4,7 @@
 
 - [ ] Create a custom navbar
 - [ ] Set Entry to done on button click 
-- [ ] Get/Set rating for RateThisVideo component
-- [ ] Handle editing of tags 
-  - [ ] ~~Add/Delete single element to array in Postgres~~
-  - [x] Always update the full array of strings
-  - [x] Delete event from tag
-  - [x] Input element to add tag  
-  - [ ] Autocomplete on adding?
-  - [x] Add on presskey enter
-  - [ ] Do all the calls
+
 - [ ] Handle editing of Title
 - [ ] Handle votes
   - [x] Create new column vote
@@ -32,3 +24,12 @@
   - [x] db connection
 - [x] Get Auto description from youtube
 - [x] Create Basic FrontEnd
+- [x] Handle editing of tags 
+  - [x] Always update the full array of strings
+  - [x] Delete event from tag
+  - [x] Input element to add tag  
+  - [x] Add on presskey enter
+  - [x] Do all the calls
+  - [ ] ~~Add/Delete single element of array in Postgres~~
+  - [ ] ~~Autocomplete on adding?~~
+- [x] Get/Set rating for RateThisVideo component

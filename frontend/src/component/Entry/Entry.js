@@ -62,7 +62,7 @@ const Entry = props => {
 
           <div className='entry-card-back__actions'>
             <CheckButton id={props.entry.id} />
-            <RateThisVideo id={props.entry.id} />
+            <RateThisVideo id={props.entry.id} rate={props.entry.rate} />
             <DeleteButton id={props.entry.id} />
           </div>
 
