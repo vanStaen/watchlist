@@ -3,7 +3,10 @@
 ## To-dos:
 
 - [ ] Create a custom navbar
-- [ ] Handle editing of Title
+- [ ] Lazy Loading of images
+- [ ] Timeout on loading main page
+- [ ] Infinite scrolling
+
 
 ## Completed ✓
 
@@ -32,3 +35,4 @@
   - [x] Create vote input
   - [x] Handle vote querry
 - [x] Set Entry to done on button click
+- [x] Handle editing of Title
