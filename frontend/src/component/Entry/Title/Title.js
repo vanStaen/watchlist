@@ -24,7 +24,7 @@ const CheckButton = props => {
         // fetch Entries
         patchEntry(value).then((resData) => {
             const patchResult = resData;
-            console.log("Sucess", patchResult);
+            //console.log("Sucess", patchResult);
         }
         ).catch(error => {
             console.log("error", error.message);
@@ -49,14 +49,14 @@ const CheckButton = props => {
         setEditMode(false);
     }
 
-    const longStringIsLongerThan = 35;
-    const isLongTitle = editInputValue.length > longStringIsLongerThan;
+    const howLongIsLong = 36;
+    const isLongTitle = editInputValue.length > howLongIsLong;
 
     return (
         <>
             {!editMode &&
                 (<div onDoubleClick={handlerShowEditInput}>
-                    {isLongTitle ? `${editInputValue.slice(0, longStringIsLongerThan)}...` : editInputValue}
+                    {isLongTitle ? `${editInputValue.slice(0, howLongIsLong)}...` : editInputValue}
                 </div>)}
             {editMode &&
                 (<Tooltip title="Press enter to save your cahnges">

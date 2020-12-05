@@ -1,15 +1,17 @@
 import { React, useState } from 'react';
-import { YoutubeOutlined, UndoOutlined, CheckOutlined } from '@ant-design/icons';
+import { YoutubeOutlined, UndoOutlined, CheckOutlined, HeartTwoTone } from '@ant-design/icons';
 import Tags from './Tags/Tags';
 import DeleteButton from './Actions/DeleteButton';
 import RateThisVideo from './Actions/RateThisVideo';
 import CheckButton from './Actions/CheckButton';
 import Title from './Title/Title';
+import Bookmark from './Bookmark/Bookmark';
 import './Entry.css';
 
 const Entry = props => {
-
   const [isDone, setIsDone] = useState(props.entry.done);
+  const [isBookmarked, setIsBookmarked] = useState(props.entry.bookmark);
+  const [showBookmarkOnFront, setShowBookmarkOnFront] = useState(props.entry.bookmark);
 
   const id = 'inner' + props.entry.id;
   const img = 'img' + props.entry.id;
@@ -19,13 +21,14 @@ const Entry = props => {
     document.getElementById(id).style.transform = "translateX(-100%) rotateY(-180deg)";
     isDone ? setTimeout(function () { document.getElementById(img_done).style.display = "none"; }, 500) : '';
     setTimeout(function () { document.getElementById(img).style.display = "none"; }, 500);
-
+    setShowBookmarkOnFront(false);
   }
 
   const handlerFlipDivBack = () => {
     isDone ? document.getElementById(img_done).style.display = "block" : '';
     document.getElementById(img).style.display = "block";
     document.getElementById(id).style.transform = "rotateY(0deg)";
+    setTimeout(function () { setShowBookmarkOnFront(isBookmarked); }, 250);
   }
 
   const youtubeVideoID =
@@ -39,9 +42,17 @@ const Entry = props => {
     <div className='entry-card' id={props.entry.id}>
       <div className='entry-card-inner' id={'inner' + props.entry.id}>
         <div className='entry-card-front' onClick={handlerFlipDiv}>
-          {isDone && (<div className='entry-card-front__done' id={'done' + props.entry.id} >
-            < CheckOutlined />
-          </div>)}
+          {showBookmarkOnFront && (
+            <Bookmark
+              id={props.entry.id}
+              setIsBookmarked={setIsBookmarked}
+              isBookmarked={isBookmarked}
+              front={true}
+            />)}
+          {isDone && (
+            <div className='entry-card-front__done' id={'done' + props.entry.id} >
+              < CheckOutlined />
+            </div>)}
           <img
             className='entry-card__img'
             id={'img' + props.entry.id}
@@ -53,6 +64,12 @@ const Entry = props => {
           </div>
         </div>
         <div className='entry-card-back'>
+          <Bookmark
+            id={props.entry.id}
+            setIsBookmarked={setIsBookmarked}
+            isBookmarked={isBookmarked}
+            front={false}
+          />
           <div className='entry-card-back-corner' onClick={handlerFlipDivBack} >
             <UndoOutlined />
           </div>

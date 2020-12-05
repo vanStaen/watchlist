@@ -40,3 +40,4 @@
   - [x] Handle vote querry
 - [x] Set Entry to done on button click
 - [x] Handle editing of Title
+- [x] Bookmark feature
