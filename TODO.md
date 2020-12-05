@@ -6,7 +6,10 @@
 - [ ] Lazy Loading of images
 - [ ] Timeout on loading main page
 - [ ] Infinite scrolling
-
+- [ ] Fitler result (per tags)
+- [ ] Sort result (per rating)
+- [ ] Insert new videos
+- [ ] Info/impressum
 
 ## Completed ✓
 
