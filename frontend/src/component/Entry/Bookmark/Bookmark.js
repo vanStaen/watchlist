@@ -8,7 +8,7 @@ import './Bookmark.css';
 const Bookmark = props => {
 
     const patchBookmark = (value) => {
-        async function patchEntry() {
+        async function patchEntry(value) {
             const response = await axios({
                 url: process.env.REACT_APP_API_URL + '/' + props.id,
                 method: 'PATCH',

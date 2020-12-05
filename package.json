@@ -8,12 +8,12 @@
     "start": "node index.js",
     "start-client": "react-scripts start",
     "devfront": "cd frontend/; npm start; cd ../;",
-    "devback": "nodemon index;",
-    "dev": "concurrently --kill-others \"npm run devfront\" \"npm run devback\"",
+    "dev": "nodemon index;",
     "version": "heroku --version; git --version",
     "buildfe": "cd frontend/; npm run build; cd ../; git add -A; git commit -a -m \"deploy\"; git push;",
     "deploy": "npm run buildfe; heroku git:remote -a watchlist-cvs; git push heroku main",
-    "log": "heroku logs --tail"
+    "log": "heroku logs --tail",
+    "kill5001çç": "kill $(lsof -t -i:5001)"
   },
   "repository": {
     "type": "git",
