@@ -10,6 +10,7 @@
 - [ ] Sort result (per rating)
 - [ ] Insert new videos
 - [ ] Info/impressum
+- [ ] Database auto backup (as JSON file)?
 
 ## Completed ✓
 
