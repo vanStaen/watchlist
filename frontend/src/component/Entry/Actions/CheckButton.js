@@ -33,7 +33,7 @@ const CheckButton = props => {
     const handlerCheck = (value) => {
         patchIsdone(value);
         props.setIsDone(value);
-        const messageTitle = value ? 'Watched! Let\'s forget it for now.' : 'Let me come back to this again ...';
+        const messageTitle = value ? 'Watched!' : 'Let me come back to this again ...';
         const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
 
         notification.success({
