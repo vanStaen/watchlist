@@ -34,6 +34,17 @@ const Bookmark = props => {
     const handlerBookmarking = (value) => {
         props.setIsBookmarked(value);
         patchBookmark(value);
+
+        const messageTitle = value ? 'Bookmarked!' : 'Bookmarked deleted';
+        const messageText = value ? 'will appears with a bookmark from now on.' : 'is not bookmarked anymore';
+
+        notification.success({
+            message: messageTitle,
+            description:
+                `Watchlist entry #${props.id} ${messageText}.`,
+            placement: "bottomRight",
+        });
+
     }
 
     const bookmarked = props.isBookmarked;
