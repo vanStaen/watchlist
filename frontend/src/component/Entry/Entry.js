@@ -20,8 +20,9 @@ const Entry = props => {
   const handlerFlipDiv = () => {
     document.getElementById(id).style.transform = "translateX(-100%) rotateY(-180deg)";
     isDone ? setTimeout(function () { document.getElementById(img_done).style.display = "none"; }, 500) : '';
+    isBookmarked ? setTimeout(function () { setShowBookmarkOnFront(false); }, 200) : '';
     setTimeout(function () { document.getElementById(img).style.display = "none"; }, 500);
-    setShowBookmarkOnFront(false);
+
   }
 
   const handlerFlipDivBack = () => {

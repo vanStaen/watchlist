@@ -1,7 +1,6 @@
 .Entries__Main {
     width: auto;
     display: flex;
-    border: 0px solid red;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
