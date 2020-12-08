@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { YoutubeOutlined, UndoOutlined, CheckOutlined, HeartTwoTone } from '@ant-design/icons';
+import { YoutubeOutlined, UndoOutlined, CheckOutlined } from '@ant-design/icons';
 import Tags from './Tags/Tags';
 import DeleteButton from './Actions/DeleteButton';
 import RateThisVideo from './Actions/RateThisVideo';
