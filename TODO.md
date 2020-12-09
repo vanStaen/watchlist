@@ -11,6 +11,10 @@
 - [ ] Insert new videos
 - [ ] Info/impressum
 - [ ] Database auto backup (as JSON file)?
+  - [x] Fetch data from db and save in Json file
+  - [ ] Compare with latest file to see if any change
+  - [ ] Where to save this? 
+  - [ ] Trigger with cronjob? 
 
 ## Completed ✓
 
