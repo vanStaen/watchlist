@@ -21,20 +21,25 @@ const RateThisVideo = props => {
         patchEntry(value).then((resData) => {
             const patchResult = resData;
             //console.log("Sucess", patchResult);
+            notification.success({
+                message: 'Rating saved!',
+                description:
+                    `Your ${value}-star rating of entry #${props.id} has been successfully saved.`,
+                placement: "bottomRight",
+            });
         }
         ).catch(error => {
             console.log("error", error.message);
+            notification.error({
+                message: 'Error!',
+                description: error.message,
+                placement: "bottomRight",
+            });
         });
     }
 
     const handlerRateThisVideo = value => {
         patchRatingInDB(value);
-        notification.success({
-            message: 'Rating saved!',
-            description:
-                `Your ${value}-star rating of entry #${props.id} has been successfully saved.`,
-            placement: "bottomRight",
-        });
     }
 
     return (

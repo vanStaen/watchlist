@@ -20,28 +20,37 @@ const CheckButton = props => {
             const patchResult = await response.data;
             return patchResult;
         }
-        // fetch Entries
+        // patch entry
         patchEntry(value).then((resData) => {
             const patchResult = resData;
             console.log("Sucess", patchResult);
+
+            const messageTitle = value ? 'Watched!' : 'Let me come back to this again ...';
+            const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
+
+            notification.success({
+                message: messageTitle,
+                description:
+                    `Watchlist entry #${props.id} ${messageText}.`,
+                placement: "bottomRight",
+            });
+
         }
         ).catch(error => {
             console.log("error", error.message);
+
+            notification.error({
+                message: "Error",
+                description: error.message,
+                placement: "bottomRight",
+            });
+
         });
     }
 
     const handlerCheck = (value) => {
         patchIsdone(value);
         props.setIsDone(value);
-        const messageTitle = value ? 'Watched!' : 'Let me come back to this again ...';
-        const messageText = value ? 'has been marked as done' : 'is not marked as done anymore';
-
-        notification.success({
-            message: messageTitle,
-            description:
-                `Watchlist entry #${props.id} ${messageText}.`,
-            placement: "bottomRight",
-        });
     }
 
     return (

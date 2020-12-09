@@ -23,10 +23,24 @@ const Bookmark = props => {
         // fetch Entries
         patchEntry(value).then((resData) => {
             const patchResult = resData;
-            console.log("Sucess", patchResult);
+            //console.log("Sucess", patchResult);
+            const messageTitle = value ? 'Bookmarked!' : 'Bookmarked deleted';
+            const messageText = value ? 'will appears with a bookmark from now on.' : 'is not bookmarked anymore';
+
+            notification.success({
+                message: messageTitle,
+                description:
+                    `Watchlist entry #${props.id} ${messageText}.`,
+                placement: "bottomRight",
+            });
         }
         ).catch(error => {
             console.log("error", error.message);
+            notification.error({
+                message: messageTitle,
+                description: error.message,
+                placement: "bottomRight",
+            });
         });
     }
 
@@ -34,17 +48,6 @@ const Bookmark = props => {
     const handlerBookmarking = (value) => {
         props.setIsBookmarked(value);
         patchBookmark(value);
-
-        const messageTitle = value ? 'Bookmarked!' : 'Bookmarked deleted';
-        const messageText = value ? 'will appears with a bookmark from now on.' : 'is not bookmarked anymore';
-
-        notification.success({
-            message: messageTitle,
-            description:
-                `Watchlist entry #${props.id} ${messageText}.`,
-            placement: "bottomRight",
-        });
-
     }
 
     const bookmarked = props.isBookmarked;

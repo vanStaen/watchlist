@@ -9,13 +9,6 @@ const DeleteButton = props => {
     const handlerDelete = (e) => {
         setconfirmVisible(false);
         deleteEntry(props.id);
-        notification.error({
-            message: 'Deleted!',
-            description:
-                `Watchlist entry #${props.id} has been deleted.`,
-            icon: <DeleteOutlined />,
-            placement: "bottomRight",
-        });
         document.getElementById(props.id).style.display = "none";
     }
 
@@ -33,10 +26,23 @@ const DeleteButton = props => {
         }
         // fetch Entries
         deleteEntryRequest(entryID).then((resData) => {
-            console.log(resData)
+            //console.log(resData)
+            notification.error({
+                message: 'Deleted!',
+                description:
+                    `Watchlist entry #${props.id} has been deleted.`,
+                icon: <DeleteOutlined />,
+                placement: "bottomRight",
+            });
         }
         ).catch(error => {
             console.log(error.message);
+            notification.error({
+                message: 'Error!',
+                description: error.message,
+                icon: <DeleteOutlined />,
+                placement: "bottomRight",
+            });
         });
     };
 
