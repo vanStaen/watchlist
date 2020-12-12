@@ -13,6 +13,7 @@
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
+  border-right: 1px solid #000;
   transition: width 600ms ease;
   overflow: scroll;
   z-index: 1;
@@ -55,6 +56,7 @@
 .link-text {
   display: none;
   margin-left: 1rem;
+  text-transform: uppercase;
 }
 
 .nav-link svg {
@@ -70,11 +72,11 @@
 }
 
 .fa-primary {
-  color: #ff7eee;
+  color: #26BD90;
 }
 
 .fa-secondary {
-  color: #df49a6;
+  color: #1D8E6C;
 }
 
 .fa-primary,
@@ -134,6 +136,11 @@
   main {
     margin: 0;
   }
+
+  .navbar {
+    border-top: 1px solid #000; 
+  }
+
 }
 
 /* Large screens */
@@ -161,6 +168,11 @@
   {
     left: 0px;
   }
+
+  .navbar {
+    border-right: 1px solid #000; 
+  }
+
 }
 
 .dark {
