@@ -4,8 +4,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 30px;
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
 }
 
 .Entries-loader {
