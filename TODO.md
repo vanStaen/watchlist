@@ -3,6 +3,10 @@
 ## To-dos:
 
 - [ ] Create a custom navbar
+  - [ ] for logging
+  - [ ] for filtering
+  - [ ] for inserting
+  - [ ] for sortering
 - [ ] Lazy Loading of images
 - [ ] Timeout on loading main page
 - [ ] Infinite scrolling

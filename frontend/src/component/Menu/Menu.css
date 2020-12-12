@@ -1,35 +1,13 @@
+/* Cusomt icon color: #26BD90 */
+ 
 :root {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Open Sans';
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
+  --bg-primary: #233232;
+  --bg-secondary: #1A2626;
   --transition-speed: 600ms;
-}
-
-body {
-  color: black;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-}
-
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #6649b8;
-}
-
-main {
-  margin-left: 5rem;
-  padding: 1rem;
 }
 
 .navbar {
@@ -85,6 +63,12 @@ main {
   margin: 0 1.5rem;
 }
 
+.nav-icon {
+  width: 2.5rem;
+  min-width: 2rem;
+  margin: 0 1.2rem;
+}
+
 .fa-primary {
   color: #ff7eee;
 }
@@ -105,7 +89,7 @@ main {
   text-align: center;
   color: var(--text-secondary);
   background: var(--bg-secondary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 0.3ch;
   width: 100%;
 }
@@ -119,7 +103,7 @@ main {
 {
   display: inline;
   position: absolute;
-  left: -999px;
+  left: -1000px;
   transition: var(--transition-speed);
 }
 
