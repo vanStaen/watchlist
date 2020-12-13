@@ -102,6 +102,7 @@
     bottom: 0;
     width: 100vw;
     height: 5rem;
+    border-top: 1px solid #2B3131; 
   }
 
   .logo {
@@ -120,10 +121,6 @@
     margin: 0;
   }
 
-  .navbar {
-    border-top: 1px solid #000; 
-  }
-
 }
 
 /* Large screens */
@@ -132,6 +129,8 @@
     top: 0;
     width: 5rem;
     height: 100vh;
+    border-right: 1px solid #2B3131; 
+    box-shadow: 3px 3px 7px #2B3131;
   }
 
   .navbar:hover .logo svg
@@ -142,10 +141,6 @@
   .navbar:hover .logo-text
   {
     left: 0px;
-  }
-
-  .navbar {
-    border-right: 1px solid #000; 
   }
 
 }
