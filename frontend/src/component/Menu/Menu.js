@@ -72,7 +72,7 @@ const Menu = () => {
           </li>
 
           <li className="nav-item">
-            <Tooltip placement="right" title="Info">
+            <Tooltip placement="right" title="Info & Impressum">
               <a href="#" className="nav-link">
                 <img
                   className="nav-icon"
