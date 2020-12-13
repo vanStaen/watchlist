@@ -8,14 +8,32 @@
     margin-bottom: 0px !important;
 }
 
-.Entries-loader {
-    height: 40vmin;
+.loader {
     pointer-events: none;
     border: 1px solid #333;
   }
 
+.error {
+  pointer-events: none;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.error__icon {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  padding-top: 15px;
+  color: red;
+  font-size: 75px;
+  z-index: 1;
+  opacity: 0.5;
+}
+
   @media (prefers-reduced-motion: no-preference) {
-    .Entries-loader {
+    .loader {
       animation: App-logo-spin infinite 5s linear;
       border-radius: 50%;
       width: 100px;
@@ -31,3 +49,15 @@
       transform: rotate(360deg);
     }
   }
+
+  /*Filter styles*/
+.saturate { filter: saturate(3); }
+.grayscale { filter: grayscale(100%); }
+.contrast { filter: contrast(160%); }
+.brightness { filter: brightness(0.25); }
+.blur { filter: blur(3px); }
+.invert { filter: invert(100%); }
+.sepia { filter: sepia(100%); }
+.huerotate { filter: hue-rotate(180deg); }
+.rss.opacity { filter: opacity(50%); }
+  

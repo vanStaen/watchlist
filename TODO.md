@@ -4,7 +4,6 @@
 
 - [ ] Easy login function
 - [ ] Lazy Loading of images
-- [ ] Timeout on loading main page
 - [ ] Infinite scrolling
 - [ ] Fitler result (per tags)
 - [ ] Sort result (per rating)
@@ -46,3 +45,4 @@
 - [x] Handle editing of Title
 - [x] Bookmark feature
 - [x] Create a custom navbar
+- [x] Error shown on BackEnd connection error
