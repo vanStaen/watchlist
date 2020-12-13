@@ -2,17 +2,13 @@
 
 ## To-dos:
 
-- [ ] Create a custom navbar
-  - [ ] for logging
-  - [ ] for filtering
-  - [ ] for inserting
-  - [ ] for sortering
+- [ ] Easy login function
 - [ ] Lazy Loading of images
 - [ ] Timeout on loading main page
 - [ ] Infinite scrolling
 - [ ] Fitler result (per tags)
 - [ ] Sort result (per rating)
-- [ ] Insert new videos
+- [ ] Form : Insert new videos
 - [ ] Info/impressum
 - [ ] Database auto backup (as JSON file)?
   - [x] Fetch data from db and save in Json file
@@ -49,3 +45,4 @@
 - [x] Set Entry to done on button click
 - [x] Handle editing of Title
 - [x] Bookmark feature
+- [x] Create a custom navbar

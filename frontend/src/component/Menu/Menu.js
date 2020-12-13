@@ -17,13 +17,21 @@ const Menu = () => {
       <nav className="navbar">
         <ul className="navbar-nav">
           <li className="logo">
-            <a href="#" className="nav-logo">
+            <div className="nav-logo">
               <img
                 className="nav-icon"
                 src={playIcon}
                 alt="Sort">
               </img>
-            </a>
+              <Tooltip placement="right" title="Visit the author's page.">
+                <a href="http://www.clementvanstaen.com"
+                  target="_blank">
+                  <img src="https://avatars0.githubusercontent.com/u/12551446"
+                    className="link-text logo-text"
+                    alt="Loading" />
+                </a>
+              </Tooltip>
+            </div>
           </li>
 
           <li className="nav-item">
