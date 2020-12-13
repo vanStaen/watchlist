@@ -1,6 +1,5 @@
 .Footer__Main {
     position: relative;
-    left: 40px;
     bottom: 0;
     padding: 15px;
     width: 100%;
@@ -8,6 +7,10 @@
     color: #ccc;
     text-align: center;
   }
+
+.Footer__text {
+  margin-left: 80px;
+}
 
   a {
     color: #fff;

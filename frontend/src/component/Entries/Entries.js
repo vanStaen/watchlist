@@ -54,7 +54,7 @@ class Entries extends Component {
           <div className="entries__spinner">
             <img src="https://avatars0.githubusercontent.com/u/12551446" className="loader" alt="Loading" />
             <br />
-            <div style={{ fontSize: 18, marginTop: 10 }}>Loading ... </div>
+            <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Loading ... </div>
           </div>
           :
           this.state.isError ?
@@ -62,7 +62,7 @@ class Entries extends Component {
               <CloseOutlined className="error__icon" />
               <img src="https://avatars0.githubusercontent.com/u/12551446" className="error" alt="Error" />
               <br />
-              <div style={{ fontSize: 18, marginTop: 10 }}>Error connecting to the backend! </div>
+              <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Error connecting to the backend! </div>
             </div>
             :
             <div className='Entries__Main'>

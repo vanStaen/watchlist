@@ -1,11 +1,10 @@
 .Entries__Main {
-    width: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5px !important;
-    margin-bottom: 0px !important;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .loader {

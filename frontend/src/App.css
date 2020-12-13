@@ -1,19 +1,15 @@
 @import '~antd/dist/antd.css';
 
 .App {
-  border: 0px solid block;
+  text-align: center;
 }
 
 .App-body {
-  text-align: center;
   background-color: #456464;
-  min-height: 100vh;
+  min-height: 96vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 @media only screen and (max-width: 600px) {
