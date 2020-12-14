@@ -3,7 +3,7 @@ import { Tag } from 'antd';
 
 import './Filter.css';
 
-const Filter = (props) => {
+const DisplayFilter = (props) => {
 
     const filters = props.filters;
 
@@ -37,4 +37,4 @@ const Filter = (props) => {
     )
 }
 
-export default Filter;
+export default DisplayFilter;
