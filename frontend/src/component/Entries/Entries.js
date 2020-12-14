@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CloseOutlined } from '@ant-design/icons';
 
 import Entry from '../Entry/Entry';
-import Filter from '../Filter/Filter';
+import DisplayFilter from '../Filter/DisplayFilter';
 import axios from 'axios';
 
 import './Entries.css';
@@ -98,7 +98,7 @@ class Entries extends Component {
 
             <div>
               <div className='Entries__Filter'>
-                <Filter filters={this.state.filter} results={entriesNotNull.length} />
+                <DisplayFilter filters={this.state.filter} results={entriesNotNull.length} />
               </div>
               <div className='Entries__Main'>
                 {entries}
