@@ -12,7 +12,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  color:
+}
+
+.Entries__spinner {
+  min-height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .loader {

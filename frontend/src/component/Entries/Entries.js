@@ -74,20 +74,25 @@ class Entries extends Component {
     console.log(entries);
 
     return (
-      <div style={{ margin: 30 }}>
+      <div style={{ margin: 30, width: "100%" }}>
         { this.state.isLoading ?
-          <div className="entries__spinner">
-            <img src="https://avatars0.githubusercontent.com/u/12551446" className="loader" alt="Loading" />
-            <br />
-            <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Loading ... </div>
+
+          <div className="Entries__spinner">
+            <div>
+              <img src="https://avatars0.githubusercontent.com/u/12551446" className="loader" alt="Loading" />
+              <br />
+              <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Loading ... </div>
+            </div>
           </div>
           :
           this.state.isError ?
-            <div className="entries__spinner">
-              <CloseOutlined className="error__icon" />
-              <img src="https://avatars0.githubusercontent.com/u/12551446" className="error" alt="Error" />
-              <br />
-              <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Error connecting to the backend! </div>
+            <div className="Entries__spinner">
+              <div>
+                <CloseOutlined className="error__icon" />
+                <img src="https://avatars0.githubusercontent.com/u/12551446" className="error" alt="Error" />
+                <br />
+                <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Error connecting to the backend! </div>
+              </div>
             </div>
             :
 
