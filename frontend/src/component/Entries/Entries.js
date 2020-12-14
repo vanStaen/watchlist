@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { CloseOutlined } from '@ant-design/icons';
 
-import Entry from '../Entry/Entry'
+import Entry from '../Entry/Entry';
+import Filter from '../Filter/Filter';
 import axios from 'axios';
 
 import './Entries.css';
@@ -12,7 +13,7 @@ class Entries extends Component {
     watchlistEntries: [],
     isLoading: true,
     isError: false,
-    filter: []
+    filter: ['javascript', 'vanilla']
   }
 
   componentDidMount() {
@@ -92,7 +93,7 @@ class Entries extends Component {
 
             <div>
               <div className='Entries__Filter'>
-                Filter: {this.state.filter.join(',  ')} ({entriesNotNull.length} results)
+                <Filter filters={this.state.filter} results={entriesNotNull.length} />
               </div>
               <div className='Entries__Main'>
                 {entries}

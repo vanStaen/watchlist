@@ -1,0 +1,11 @@
+.filter {
+    vertical-align: bottom;
+    margin: 0 auto;
+    color: #ccc;
+}
+
+.filter-tag {
+    background: #2B3131;
+    color: #ccc;
+    border-color: #aaa;
+  }
