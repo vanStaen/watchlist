@@ -12,10 +12,13 @@ class Entries extends Component {
     watchlistEntries: [],
     isLoading: true,
     isError: false,
+    filter: []
   }
 
   componentDidMount() {
+
     this.loadEntries();
+
   }
 
   loadEntries() {
@@ -44,10 +47,31 @@ class Entries extends Component {
 
 
   render() {
+
+
     const entries = this.state.watchlistEntries.map(entry => {
-      const youtubeVideoID = "https://img.youtube.com/vi/" + entry.link.split('&')[0].split('=')[1] + "/0.jpg"
-      return <Entry key={entry.id} entry={entry} />
+
+      /* const belongsToFilter = entry.tags.some((val) => this.state.filter.includes(val)); */
+      const belongsToFilter = this.state.filter.every((val) => entry.tags.includes(val));
+
+      console.log('entry.tags', entry.tags)
+      console.log('this.state.filter', this.state.filter)
+      console.log('belongsToFilter', belongsToFilter)
+
+      if (belongsToFilter) {
+        return <Entry key={entry.id} entry={entry} />
+      } else {
+        return null
+      }
     })
+
+    const entriesNotNull = entries.filter(function (e) {
+      return e != null;
+    });
+
+
+    console.log(entries);
+
     return (
       <div style={{ margin: 30 }}>
         { this.state.isLoading ?
@@ -65,8 +89,14 @@ class Entries extends Component {
               <div style={{ fontSize: 18, marginTop: 10, color: "white" }}>Error connecting to the backend! </div>
             </div>
             :
-            <div className='Entries__Main'>
-              {entries}
+
+            <div>
+              <div className='Entries__Filter'>
+                Filter: {this.state.filter.join(',  ')} ({entriesNotNull.length} results)
+              </div>
+              <div className='Entries__Main'>
+                {entries}
+              </div>
             </div>
         }
       </div>

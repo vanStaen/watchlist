@@ -3,8 +3,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 30px;
     margin-bottom: 0px;
+}
+
+.Entries__Filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color:
 }
 
 .loader {

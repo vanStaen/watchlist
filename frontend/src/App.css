@@ -6,7 +6,7 @@
 
 .App-body {
   background-color: #456464;
-  min-height: 96vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
