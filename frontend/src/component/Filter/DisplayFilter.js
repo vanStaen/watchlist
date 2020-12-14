@@ -7,8 +7,10 @@ const DisplayFilter = (props) => {
 
     const filters = props.filters;
 
-    const handlerDeleteFilter = () => {
-        console.log('click');
+    const handlerDeleteFilter = (index) => {
+        let oldFilters = filters;
+        let deletedTags = oldFilters.splice(index, 1);
+        props.setFilters(oldFilters);
     }
 
     const formattedFilters = filters ? filters.map((filter, index) => {
@@ -16,7 +18,7 @@ const DisplayFilter = (props) => {
             <Tag
                 className="filter-tag"
                 key={index}
-                color="#2B3131"
+                color="#1A2626"
                 closable
                 onClose={() => handlerDeleteFilter(index)}
             >
@@ -25,12 +27,11 @@ const DisplayFilter = (props) => {
         );
     }) : [];
 
-
     return (
         <div style={{ marginTop: 20 }}>
             {filters.length != 0 &&
                 (<div className='filter'>
-                    Filter: {formattedFilters} ({props.results} results)
+                    {formattedFilters} ({props.results} results)
                 </div>)
             }
         </div>

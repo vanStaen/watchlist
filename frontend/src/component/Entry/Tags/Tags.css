@@ -9,7 +9,7 @@
 
 .tag-input {
     margin: 4px;
-    background: #2B3131;
+    background: #1A2626;
     color: #ccc;
     border-style: dashed;
     padding-bottom: 2px;
@@ -24,14 +24,14 @@
 
 
 .site-tag-plus {
-    background: #2B3131;
+    background: #1A2626;
     color: #ccc;
     border-style: dashed;
     border-color: #aaa;
   }
 
 .edit-tag {
-    background: #2B3131;
+    background: #1A2626;
     color: #ccc;
     border-color: #aaa;
   }

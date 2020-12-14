@@ -8,18 +8,18 @@ import axios from 'axios';
 import './Entries.css';
 
 class Entries extends Component {
-
-  state = {
-    watchlistEntries: [],
-    isLoading: true,
-    isError: false,
-    filter: ['javascript', 'vanilla']
+  constructor(props) {
+    super(props);
+    this.state = {
+      watchlistEntries: [],
+      isLoading: true,
+      isError: false,
+      filter: ['javascript', 'vanilla']
+    };
   }
 
   componentDidMount() {
-
     this.loadEntries();
-
   }
 
   loadEntries() {
@@ -46,9 +46,13 @@ class Entries extends Component {
     });
   };
 
+  setFilters = (value) => {
+    this.setState({
+      filter: value
+    });
+  }
 
   render() {
-
 
     const entries = this.state.watchlistEntries.map(entry => {
 
@@ -64,9 +68,6 @@ class Entries extends Component {
     const entriesNotNull = entries.filter(function (e) {
       return e != null;
     });
-
-
-    console.log(entries);
 
     return (
       <div style={{ margin: 10, width: "100%" }}>
@@ -93,7 +94,7 @@ class Entries extends Component {
 
             <div>
               <div className='Entries__Filter'>
-                <DisplayFilter filters={this.state.filter} results={entriesNotNull.length} />
+                <DisplayFilter filters={this.state.filter} results={entriesNotNull.length} setFilters={this.setFilters} />
               </div>
               <div className='Entries__Main'>
                 {entries}

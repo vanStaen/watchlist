@@ -122,7 +122,7 @@ const Tags = props => {
             <Tag
                 className="edit-tag"
                 key={index}
-                color="#2B3131"
+                color="#1A2626"
                 closable
                 onClose={() => handlerDeleteTag(index)}
             >
