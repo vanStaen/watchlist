@@ -3,6 +3,7 @@
     bottom: 0;
     padding: 15px;
     width: 100%;
+    min-height: 6vh;
     background-color: #456464;
     color: #ccc;
     text-align: center;
