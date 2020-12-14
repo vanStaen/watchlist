@@ -52,12 +52,7 @@ class Entries extends Component {
 
     const entries = this.state.watchlistEntries.map(entry => {
 
-      /* const belongsToFilter = entry.tags.some((val) => this.state.filter.includes(val)); */
       const belongsToFilter = this.state.filter.every((val) => entry.tags.includes(val));
-
-      console.log('entry.tags', entry.tags)
-      console.log('this.state.filter', this.state.filter)
-      console.log('belongsToFilter', belongsToFilter)
 
       if (belongsToFilter) {
         return <Entry key={entry.id} entry={entry} />
@@ -74,7 +69,7 @@ class Entries extends Component {
     console.log(entries);
 
     return (
-      <div style={{ margin: 30, width: "100%" }}>
+      <div style={{ margin: 10, width: "100%" }}>
         { this.state.isLoading ?
 
           <div className="Entries__spinner">
