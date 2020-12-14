@@ -28,13 +28,14 @@ const DisplayFilter = (props) => {
     }) : [];
 
     return (
-        <div style={{ marginTop: 20 }}>
+        formattedFilters.length > 0 &&
+        (<div style={{ marginTop: 20 }}>
             {filters.length != 0 &&
                 (<div className='filter'>
                     {formattedFilters} ({props.results} results)
                 </div>)
             }
-        </div>
+        </div>)
     )
 }
 
