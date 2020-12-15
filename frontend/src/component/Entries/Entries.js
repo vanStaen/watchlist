@@ -25,7 +25,7 @@ class Entries extends Component {
   loadEntries() {
     async function fetchEntries() {
       const response = await axios({
-        url: process.env.REACT_APP_API_URL,
+        url: process.env.REACT_APP_API_URL + "watchlist",
         method: "GET",
       });
       if ((response.status !== 200) & (response.status !== 201)) {

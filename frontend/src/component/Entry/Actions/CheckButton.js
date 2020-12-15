@@ -10,7 +10,7 @@ const CheckButton = props => {
     const patchIsdone = (value) => {
         async function patchEntry() {
             const response = await axios({
-                url: process.env.REACT_APP_API_URL + '/' + props.id,
+                url: process.env.REACT_APP_API_URL + "watchlist/" + props.id,
                 method: 'PATCH',
                 data: { 'done': value }
             });

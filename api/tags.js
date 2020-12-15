@@ -25,7 +25,14 @@ router.get("/", async (req, res) => {
     let currentTags = [];
     watchlist.rows.forEach((entry) => {
       entry.tags.forEach((tag) => {
-        currentTags.includes(tag) ? null : currentTags = [...currentTags, tag];
+        const foundTags = currentTags.findIndex((currentTag) => {
+          return currentTag.tag === tag;
+        })
+        if (foundTags !== -1) {
+          currentTags[foundTags].score++;
+        } else {
+          currentTags = [...currentTags, { "tag": tag, "score": 1 }];
+        }
       })
     });
     res.status(201).json(currentTags);

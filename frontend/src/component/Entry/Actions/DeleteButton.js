@@ -15,7 +15,7 @@ const DeleteButton = props => {
     const deleteEntry = (entryID) => {
         const deleteEntryRequest = async (entryID) => {
             const response = await axios({
-                url: process.env.REACT_APP_API_URL + '/' + entryID,
+                url: process.env.REACT_APP_API_URL + "watchlist/" + entryID,
                 method: "DELETE",
             });
             if ((response.status !== 200) & (response.status !== 201)) {
