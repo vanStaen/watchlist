@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import './App.css';
 
 import Entries from './component/Entries/Entries';
@@ -26,7 +26,10 @@ function App() {
           setFilters={setFilters}
         />
         <div className="App-body">
-          <Entries />
+          <Entries
+            filters={filters}
+            setFilters={setFilters}
+          />
         </div>
         <Footer />
       </div>

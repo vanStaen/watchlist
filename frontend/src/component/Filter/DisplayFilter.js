@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import { Tag } from 'antd';
 
 import './Filter.css';
@@ -10,7 +10,7 @@ const DisplayFilter = (props) => {
     const handlerDeleteFilter = (index) => {
         let oldFilters = filters;
         let deletedTags = oldFilters.splice(index, 1);
-        props.setFilters(oldFilters);
+        props.setFilters([...oldFilters]);
     }
 
     const formattedFilters = filters ? filters.map((filter, index) => {

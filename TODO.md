@@ -7,12 +7,13 @@
 - [ ] Infinite scrolling
 - [ ] Filter result (per tags)
   - [x] show all tags as filter
-  - [ ] Add filter
+  - [x] Add filter
   - [x] Display filter
   - [x] Delete filter
-  - [ ] Sort filter by score
   - [ ] hide under 1 score 
   - [ ] click to show more
+  - [ ] Sort Tags Alpha
+  - [ ] Loader on CloseTags
 - [ ] Sort result (per rating)
 - [ ] Form : Insert new videos
 - [ ] Info/impressum

@@ -14,7 +14,6 @@ class Entries extends Component {
       watchlistEntries: [],
       isLoading: true,
       isError: false,
-      filter: ['javascript', 'vanilla']
     };
   }
 
@@ -46,17 +45,11 @@ class Entries extends Component {
     });
   };
 
-  setFilters = (value) => {
-    this.setState({
-      filter: value
-    });
-  }
-
   render() {
 
     const entries = this.state.watchlistEntries.map(entry => {
 
-      const belongsToFilter = this.state.filter.every((val) => entry.tags.includes(val));
+      const belongsToFilter = this.props.filters.every((val) => entry.tags.includes(val));
 
       if (belongsToFilter) {
         return <Entry key={entry.id} entry={entry} />
@@ -94,7 +87,7 @@ class Entries extends Component {
 
             <div>
               <div className='Entries__Filter'>
-                <DisplayFilter filters={this.state.filter} results={entriesNotNull.length} setFilters={this.setFilters} />
+                <DisplayFilter results={entriesNotNull.length} filters={this.props.filters} setFilters={this.props.setFilters} />
               </div>
               <div className='Entries__Main'>
                 {entries}
