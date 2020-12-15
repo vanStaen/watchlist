@@ -7,16 +7,11 @@ import './Filter.css';
 const Filter = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [tags, setTags] = useState([]);
-    const [filters, setFilters] = useState([]);
 
     useEffect(() => {
         loadTags();
         setIsLoading(false)
     }, []);
-
-    useEffect(() => {
-        setTags(tags);
-    }, [setFilters, filters]);
 
     const loadTags = () => {
         async function fetchEntries() {
@@ -45,27 +40,27 @@ const Filter = (props) => {
     };
 
     const handlerAddFilter = (filter) => {
-        const filtersTemp = filters;
-        const inFilter = filters.includes(filter);
+        const filtersTemp = props.filters;
+        const inFilter = props.filters.includes(filter);
         if (!inFilter) {
             filtersTemp.push(filter);
-            setFilters([...filtersTemp]);
+            props.setFilters([...filtersTemp]);
         }
-        console.log(filters);
+        console.log(props.filters);
     }
 
     const handlerDeleteFilter = (filter) => {
-        const filtersTemp = filters;
-        const indexOfFilter = filters.indexOf(filter);
+        const filtersTemp = props.filters;
+        const indexOfFilter = props.filters.indexOf(filter);
         filtersTemp.splice(indexOfFilter, 1);
-        setFilters([...filtersTemp]);
-        console.log(filters);
+        props.setFilters([...filtersTemp]);
+        console.log(props.filters);
     }
 
     const formattedTags = tags ? tags.map((tagData, index) => {
 
         let divStyle = {};
-        const inFilter = filters.includes(tagData.tag);
+        const inFilter = props.filters.includes(tagData.tag);
 
         switch (true) {
             case (inFilter):

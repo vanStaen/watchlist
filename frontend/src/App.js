@@ -10,6 +10,7 @@ function App() {
 
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [isSortVisible, setIsSortVisible] = useState(false);
+  const [filters, setFilters] = useState([]);
 
   return (
     <div className="App">
@@ -18,7 +19,12 @@ function App() {
         setIsFilterVisible={setIsFilterVisible}
       />
       <div className="Drawers-Wrapper">
-        <Filter isFilterVisible={isFilterVisible} setIsFilterVisible={setIsFilterVisible} />
+        <Filter
+          isFilterVisible={isFilterVisible}
+          setIsFilterVisible={setIsFilterVisible}
+          filters={filters}
+          setFilters={setFilters}
+        />
         <div className="App-body">
           <Entries />
         </div>
