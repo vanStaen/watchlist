@@ -10,7 +10,17 @@ import loginIcon from './icons/login.png';
 
 import './Menu.css'
 
-const Menu = () => {
+const Menu = (props) => {
+
+  const toggleFilterVisible = () => {
+    props.isFilterVisible ?
+      props.setIsFilterVisible(false)
+      :
+      props.setIsFilterVisible(true);
+  }
+
+  const styleFilterButton = props.isFilterVisible ? "nav-link nav-link-active" : "nav-link";
+
 
   return (
     <div>
@@ -59,13 +69,15 @@ const Menu = () => {
             </Tooltip>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item"
+            onClick={toggleFilterVisible}>
             <Tooltip placement="right" title="Filter results">
-              <a href="#" className="nav-link">
+              <a href="#" className={styleFilterButton}>
                 <img
                   className="nav-icon"
                   src={filterIcon}
-                  alt="Sort">
+                  alt="Sort"
+                >
                 </img>
               </a>
             </Tooltip>

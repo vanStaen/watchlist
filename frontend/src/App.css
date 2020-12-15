@@ -2,14 +2,22 @@
 
 .App {
   text-align: center;
+  background-color: #456464;
 }
 
-.App-body {
+.App-body  {
   background-color: #456464;
   min-height: 94vh;
-  width: "100%";
+  width: 100%;
   display: flex;
 }
+
+.Drawers-Wrapper  {
+  background-color: #456464;
+  position: relative;
+  z-index: 0;
+}
+
 
 @media only screen and (max-width: 600px) {
   .App-body {
@@ -18,7 +26,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .App-body {
+  .App-body {  
     padding-left: 70px;
   }
 }

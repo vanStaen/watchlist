@@ -8,3 +8,13 @@
     color: #ccc;
     border-color: #aaa;
   }
+  
+.ant-drawer-body {
+    background-color: #1A2626;
+    color: #fff;
+
+  }
+
+.anticon-close {
+    color: #fff;
+  }

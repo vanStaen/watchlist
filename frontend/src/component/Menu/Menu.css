@@ -67,6 +67,10 @@
   color: var(--text-secondary);
 }
 
+.nav-link-active {
+  filter: grayscale(0%) opacity(1) !important;
+}
+
 
 .link-text {
   display: none;
