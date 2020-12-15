@@ -7,10 +7,16 @@ import './Filter.css';
 const Filter = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [tags, setTags] = useState([]);
+    const [filters, setFilters] = useState([]);
 
     useEffect(() => {
         loadTags();
+        setIsLoading(false)
     }, []);
+
+    useEffect(() => {
+        setTags(tags);
+    }, [setFilters, filters]);
 
     const loadTags = () => {
         async function fetchEntries() {
@@ -24,7 +30,6 @@ const Filter = (props) => {
             const tags = await response.data;
             return tags;
         }
-        // fetch Entries
         fetchEntries().then((resData) => {
             setTags(resData);
             setIsLoading(false);
@@ -40,45 +45,75 @@ const Filter = (props) => {
     };
 
     const handlerAddFilter = (filter) => {
-        console.log('add this filter:', filter)
+        const filtersTemp = filters;
+        const inFilter = filters.includes(filter);
+        if (!inFilter) {
+            filtersTemp.push(filter);
+            setFilters([...filtersTemp]);
+        }
+        console.log(filters);
+    }
+
+    const handlerDeleteFilter = (filter) => {
+        const filtersTemp = filters;
+        const indexOfFilter = filters.indexOf(filter);
+        filtersTemp.splice(indexOfFilter, 1);
+        setFilters([...filtersTemp]);
+        console.log(filters);
     }
 
     const formattedTags = tags ? tags.map((tagData, index) => {
 
         let divStyle = {};
-        switch (tagData.score) {
-            case 1:
+        const inFilter = filters.includes(tagData.tag);
+
+        switch (true) {
+            case (inFilter):
+                divStyle = {
+                    color: "#000",
+                    borderColor: "#000",
+                    backgroundColor: "#26BD90",
+                }
+                break;
+            case (tagData.score < 2):
                 divStyle = {
                     color: "#666",
-                    borderColor: "#666"
+                    borderColor: "#666",
+                    backgroundColor: "#233232",
                 }
                 break;
-            case (tagData.score < 4):
+            case (tagData.score < 3):
                 divStyle = {
-                    color: "#999",
-                    borderColor: "#999"
+                    color: "#aaa",
+                    borderColor: "#aaa",
+                    backgroundColor: "#233232",
                 }
                 break;
-            case (tagData.score < 7):
+            case (tagData.score < 6):
                 divStyle = {
-                    color: "#bbb",
-                    borderColor: "#bbb"
+                    color: "#ddd",
+                    borderColor: "#ddd",
+                    backgroundColor: "#233232",
                 }
                 break;
             default:
                 divStyle = {
                     color: "#fff",
-                    borderColor: "#fff"
+                    borderColor: "#fff",
+                    backgroundColor: "#233232",
                 }
         }
 
+
         return (
             <Tag
+                visible={true}
                 className="clickable"
                 style={divStyle}
                 key={index}
-                color="#233232"
                 onClick={() => handlerAddFilter(tagData.tag)}
+                closable={inFilter}
+                onClose={() => handlerDeleteFilter(tagData.tag)}
             >
                 {tagData.tag} ({tagData.score})
             </Tag>
@@ -95,7 +130,11 @@ const Filter = (props) => {
             height="auto"
         >
             <div className="drawer__listtags">
-                {formattedTags}
+                {isLoading ?
+                    (<div style={{ color: "#bbb", borderColor: "#bbb" }}> Loading ... </div>)
+                    :
+                    (formattedTags)
+                }
             </div>
         </Drawer >
     )

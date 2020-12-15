@@ -5,7 +5,14 @@
 - [ ] Easy login function
 - [ ] Lazy Loading of images
 - [ ] Infinite scrolling
-- [ ] Fitler result (per tags)
+- [ ] Filter result (per tags)
+  - [x] show all tags as filter
+  - [ ] Add filter
+  - [x] Display filter
+  - [x] Delete filter
+  - [ ] Sort filter by score
+  - [ ] hide under 1 score 
+  - [ ] click to show more
 - [ ] Sort result (per rating)
 - [ ] Form : Insert new videos
 - [ ] Info/impressum
