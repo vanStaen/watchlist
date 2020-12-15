@@ -8,7 +8,8 @@ import Footer from './component/Footer/Footer';
 
 function App() {
 
-  const [isFilterVisible, setIsFilterVisible] = useState(true);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [isSortVisible, setIsSortVisible] = useState(false);
 
   return (
     <div className="App">

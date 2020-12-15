@@ -1,5 +1,5 @@
-import { React, useState } from 'react';
-import { Drawer, Button } from 'antd';
+import { React } from 'react';
+import { Drawer, Tag } from 'antd';
 
 import './Filter.css';
 
@@ -8,6 +8,25 @@ const Filter = (props) => {
     const onClose = () => {
         props.setIsFilterVisible(false);
     };
+
+    const handlerAddFilter = (filter) => {
+        console.log('add this filter:', filter)
+    }
+
+    const tags = ['javascript', 'vanilla'];
+
+    const formattedTags = tags ? tags.map((tag, index) => {
+        return (
+            <Tag
+                className="filter-tag clickable"
+                key={index}
+                color="#1A2626"
+                onClick={() => handlerAddFilter(tag)}
+            >
+                {tag}
+            </Tag>
+        );
+    }) : [];
 
     return (
         <Drawer
@@ -18,7 +37,9 @@ const Filter = (props) => {
             getContainer={false}
             height="auto"
         >
-            <span>filters</span>
+            <div className="drawer__listtags">
+                {formattedTags}
+            </div>
         </Drawer >
     )
 }

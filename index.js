@@ -27,6 +27,7 @@ app.get('/', (req, res) => { res.sendFile(path.join(__dirname, "build", "index.h
 
 // Router to Watchlist API
 app.use("/watchlist", require("./api/watchlist"));
+app.use("/tags", require("./api/tags"));
 
 // Listen on a port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

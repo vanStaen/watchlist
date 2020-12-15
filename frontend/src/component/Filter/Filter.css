@@ -8,13 +8,20 @@
     color: #ccc;
     border-color: #aaa;
   }
+
+.clickable {
+    cursor: pointer;
+}
   
 .ant-drawer-body {
     background-color: #1A2626;
-    color: #fff;
-
+    color: #ccc;
   }
 
 .anticon-close {
-    color: #fff;
+    color: #ccc;
   }
+
+.drawer__listtags {
+    margin-left: 70px;
+}
