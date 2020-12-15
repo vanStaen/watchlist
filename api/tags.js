@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const getTitleFromYoutubeVideo = require('../helpers/getTitleFromYoutubeVideo')
 const { Client } = require("pg");
 
 // Init Postgres
