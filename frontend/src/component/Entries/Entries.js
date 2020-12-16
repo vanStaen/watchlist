@@ -56,6 +56,7 @@ class Entries extends Component {
       } else {
         return null
       }
+
     })
 
     const entriesNotNull = entries.filter(function (e) {
