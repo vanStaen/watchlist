@@ -39,28 +39,26 @@ const Filter = (props) => {
         props.setIsFilterVisible(false);
     };
 
-    const handlerAddFilter = (filter) => {
-        const filtersTemp = props.filters;
+    const handlerClickFilter = (filter) => {
+
         const inFilter = props.filters.includes(filter);
+        const filtersTemp = props.filters;
         if (!inFilter) {
             filtersTemp.push(filter);
             props.setFilters([...filtersTemp]);
+        } else {
+            const indexOfFilter = props.filters.indexOf(filter);
+            filtersTemp.splice(indexOfFilter, 1);
+            props.setFilters([...filtersTemp]);
         }
-        console.log(props.filters);
-    }
-
-    const handlerDeleteFilter = (filter) => {
-        const filtersTemp = props.filters;
-        const indexOfFilter = props.filters.indexOf(filter);
-        filtersTemp.splice(indexOfFilter, 1);
-        props.setFilters([...filtersTemp]);
-        console.log(props.filters);
     }
 
     const formattedTags = tags ? tags.map((tagData, index) => {
 
-        let divStyle = {};
+
         const inFilter = props.filters.includes(tagData.tag);
+
+        let divStyle = {};
 
         switch (true) {
             case (inFilter):
@@ -106,9 +104,8 @@ const Filter = (props) => {
                 className="clickable"
                 style={divStyle}
                 key={index}
-                onClick={() => handlerAddFilter(tagData.tag)}
-                closable={inFilter}
-                onClose={() => handlerDeleteFilter(tagData.tag)}
+                onClick={() => handlerClickFilter(tagData.tag)}
+                closable={false}
             >
                 {tagData.tag} ({tagData.score})
             </Tag>
