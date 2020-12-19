@@ -28,7 +28,7 @@ const AddForm = (props) => {
             visible={props.showAddForm}
             onCancel={handleCancel}
             footer={null}
-            closable={false}
+            closable={true}
         >
             <Form
                 name="basic"
