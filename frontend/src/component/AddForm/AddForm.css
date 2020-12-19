@@ -2,11 +2,20 @@
     border: 2px solid #2B3131;
     border-radius: 5px;
     background-color:rgba(69, 100, 100, .95);
-    padding-top: 20px;
+    padding-top: 5px;
+}
+
+.ant-modal-body {
+    padding-bottom: 0px;
 }
 
 .ant-input{
-    width: 400px;
+    width: 380px;
+}
+
+.ant-form-item-submit {
+    padding-right: 35px;
+    text-align: right;
 }
 
 .ant-btn-primary {
@@ -14,8 +23,15 @@
     border: 2px solid #2B3131;
 }
 
-.ant-form-item-label {
-    color: #b6b6b6 !important;
+.ant-form-item-label, .ant-form-item, .ant-form-item-required {
+    color: #ececec !important;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.ant-input {
+    height: 25px;
+    font-size: 14px !important;
 }
 
 /*

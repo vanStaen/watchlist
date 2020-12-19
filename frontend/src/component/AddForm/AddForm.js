@@ -1,17 +1,43 @@
 import { React } from "react";
-import { Modal, Form, Input, Button } from 'antd';
+import { Modal, Form, Input, Button, notification } from 'antd';
+import { VideoCameraAddOutlined } from '@ant-design/icons';
+import axios from 'axios';
 
 import './AddForm.css';
 
 const AddForm = (props) => {
 
-    const handleOk = values => {
-        console.log('submitted!', values)
-        //props.setShowAddForm(false);
-    };
-
     const onFinish = values => {
-        console.log('Success:', values);
+        const addEntryRequest = async () => {
+            const response = await axios({
+                url: process.env.REACT_APP_API_URL + "watchlist/",
+                method: "POST",
+                data: values
+            });
+            if ((response.status !== 200) & (response.status !== 201)) {
+                throw new Error("Error!");
+            }
+            const entries = await response.data;
+            return entries;
+        }
+        // add Entries
+        addEntryRequest().then(() => {
+            notification.error({
+                message: 'New entry added!',
+                description: values.link,
+                icon: <VideoCameraAddOutlined />,
+                placement: "bottomRight",
+            });
+        }
+        ).catch(error => {
+            console.log(error.message);
+            notification.error({
+                message: 'Error!',
+                description: error.message,
+                placement: "bottomRight",
+            });
+        });
+        props.setShowAddForm(false);
     };
 
     const handleCancel = () => {
@@ -22,34 +48,33 @@ const AddForm = (props) => {
         console.log('Failed:', errorInfo);
     };
 
-    return props.showAddForm && (
-        <Modal
-            centered
-            visible={props.showAddForm}
-            onCancel={handleCancel}
-            footer={null}
-            closable={true}
+    return (<Modal
+        centered
+        visible={props.showAddForm}
+        onCancel={handleCancel}
+        footer={null}
+        closable={true}
+    >
+        <Form
+            name="basic"
+            preserve={false}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
         >
-            <Form
-                name="basic"
-                preserve={false}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
+            <Form.Item
+                label="URL"
+                name="link"
+                rules={[{ required: true }]}
             >
-                <Form.Item
-                    label="url"
-                    name="url"
-                    rules={[{ required: true }]}
-                >
-                    <Input />
-                </Form.Item>
-                <Form.Item>
-                    <Button type="primary" htmlType="submit">
-                        Submit
+                <Input />
+            </Form.Item>
+            <Form.Item className="ant-form-item-submit">
+                <Button type="primary" htmlType="submit">
+                    Submit
                     </Button>
-                </Form.Item>
-            </Form>
-        </Modal >)
+            </Form.Item>
+        </Form>
+    </Modal >)
 
 }
 
