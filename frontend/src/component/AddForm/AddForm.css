@@ -1,0 +1,21 @@
+.ant-modal-content {
+    border: 2px solid #2B3131;
+    border-radius: 5px;
+    background-color:rgba(69, 100, 100, .95)
+}
+
+.ant-btn-primary {
+    background-color: #2B3131 !important;
+    border: 2px solid #2B3131;
+}
+
+.ant-form-item-label {
+    color: #b6b6b6 !important;
+}
+
+/*
+dunkel grün: 2B3131
+super dunkel grün: 1A2626
+dunkel grau: 233232
+grün: 456464
+*/
