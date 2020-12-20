@@ -46,13 +46,13 @@ const Menu = (props) => {
 
           <li className="nav-item" onClick={() => props.setShowAddForm(!props.showAddForm)}>
             <Tooltip placement="right" title="Add a link">
-              <a href="#" className="nav-link">
+              <div className="nav-link">
                 <img
                   className="nav-icon"
                   src={addIcon}
                   alt="Sort">
                 </img>
-              </a>
+              </div>
             </Tooltip>
           </li>
 
