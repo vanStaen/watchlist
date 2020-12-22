@@ -119,12 +119,14 @@ router.post("/", async (req, res) => {
   const youtubeVideoID = req.body.link.split('&')[0].split('=')[1];
   const titleFromYoutube = await getTitleFromYoutubeVideo(youtubeVideoID);
   const link = req.body.link;
-  const title = req.body.title ? req.body.title : titleFromYoutube;
-  const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "ARRAY ['" + title.split(" ").join("','") + "']";
+  const title = req.body.title ? req.body.title.replace("'", "") : titleFromYoutube.replace("'", "");
+  const tags = req.body.tags ? "ARRAY ['" + req.body.tags.join("','") + "']" : "ARRAY ['" + title.replace("'", "").replace("(", "").replace(")", "").split(" ").join("','") + "']";
   const done = req.body.done ? req.body.done : false;
   const bookmark = req.body.bookmark ? req.body.bookmark : false;
   const active = req.body.active ? req.body.active : true;
   const insertQuery = `INSERT INTO watchlist (title, link, tags, done, active, bookmark) VALUES ('${title}', '${link}', ${tags}, ${done}, ${active}, ${bookmark})`;
+
+  //console.log(insertQuery);
 
   try {
     const watchlist = await client.query(insertQuery);
