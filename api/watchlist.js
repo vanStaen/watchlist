@@ -48,6 +48,12 @@ router.get("/:id", async (req, res) => {
 
 // DELETE single data from watchlist (based on id)
 router.delete("/:id", async (req, res) => {
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   try {
     const watchlist = await client.query('DELETE FROM watchlist WHERE id=' + req.params.id);
     res.status(200).json({
@@ -62,7 +68,12 @@ router.delete("/:id", async (req, res) => {
 
 // PATCH single data from watchlist (based on id)
 router.patch("/:id", async (req, res) => {
-
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   let updateField = '';
   if (req.body.done !== undefined) {
     updateField = updateField + "done='" + req.body.done + "',";
@@ -110,7 +121,12 @@ router.patch("/:id", async (req, res) => {
 
 // POST add to watchlist
 router.post("/", async (req, res) => {
-
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   // Title and Link are Mandatory
   if (!req.body.link) {
     return res.status(400).json({ error: `Error: Some field are missing. You need to pass at least a Link to create a new entry.` });
