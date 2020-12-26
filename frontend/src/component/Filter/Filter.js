@@ -30,6 +30,7 @@ const Filter = (props) => {
             setIsLoading(false);
         }
         ).catch(error => {
+            notification.error({ error: error.message, });
             console.log(error.message);
             setIsLoading(false);
         });

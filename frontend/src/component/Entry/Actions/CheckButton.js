@@ -38,7 +38,6 @@ const CheckButton = props => {
         }
         ).catch(error => {
             console.log("error", error.message);
-
             notification.error({
                 message: "Error",
                 description: error.message,
