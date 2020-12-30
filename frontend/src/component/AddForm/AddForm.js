@@ -64,6 +64,7 @@ const AddForm = (props) => {
             <Form.Item
                 label="URL"
                 name="link"
+                className="AddFormInput"
                 rules={[{ required: true }]}
             >
                 <Input />

@@ -95,15 +95,15 @@ const Menu = (props) => {
             </Tooltip>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => props.setShowLoginForm(!props.showAddForm)}>
             <Tooltip placement="right" title="Login">
-              <a href="#" className="nav-link">
+              <span className="nav-link">
                 <img
                   className="nav-icon"
                   src={loginIcon}
-                  alt="Sort">
+                  alt="Login">
                 </img>
-              </a>
+              </span>
             </Tooltip>
           </li>
 
