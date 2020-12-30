@@ -20,6 +20,8 @@ const Menu = (props) => {
   }
 
   const styleFilterButton = props.isFilterVisible ? "nav-link nav-link-active" : "nav-link";
+  const styleLoginButton = props.token != null ? "nav-link nav-link-active" : "nav-link";
+  const tipLoginButton = props.token != null ? "Click to logout" : "Login";
 
 
   return (
@@ -96,8 +98,8 @@ const Menu = (props) => {
           </li>
 
           <li className="nav-item" onClick={() => props.setShowLoginForm(!props.showAddForm)}>
-            <Tooltip placement="right" title="Login">
-              <span className="nav-link">
+            <Tooltip placement="right" title={tipLoginButton}>
+              <span className={styleLoginButton}>
                 <img
                   className="nav-icon"
                   src={loginIcon}
