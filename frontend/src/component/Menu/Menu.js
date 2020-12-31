@@ -20,6 +20,8 @@ const Menu = (props) => {
   }
 
   const styleFilterButton = props.isFilterVisible ? "nav-link nav-link-active" : "nav-link";
+  const styleLoginButton = props.token != null ? "nav-link nav-link-active" : "nav-link";
+  const tipLoginButton = props.token != null ? "Click to logout" : "Login";
 
 
   return (
@@ -44,15 +46,15 @@ const Menu = (props) => {
             </div>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => props.setShowAddForm(!props.showAddForm)}>
             <Tooltip placement="right" title="Add a link">
-              <a href="#" className="nav-link">
+              <div className="nav-link">
                 <img
                   className="nav-icon"
                   src={addIcon}
                   alt="Sort">
                 </img>
-              </a>
+              </div>
             </Tooltip>
           </li>
 
@@ -95,15 +97,15 @@ const Menu = (props) => {
             </Tooltip>
           </li>
 
-          <li className="nav-item">
-            <Tooltip placement="right" title="Login">
-              <a href="#" className="nav-link">
+          <li className="nav-item" onClick={() => props.setShowLoginForm(!props.showAddForm)}>
+            <Tooltip placement="right" title={tipLoginButton}>
+              <span className={styleLoginButton}>
                 <img
                   className="nav-icon"
                   src={loginIcon}
-                  alt="Sort">
+                  alt="Login">
                 </img>
-              </a>
+              </span>
             </Tooltip>
           </li>
 

@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
     })*/
     let currentTags = [];
     watchlist.rows.forEach((entry) => {
-      entry.tags.forEach((tag) => {
+      (entry.tags != null) && entry.tags.forEach((tag) => {
         const foundTags = currentTags.findIndex((currentTag) => {
           return currentTag.tag === tag;
         })
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
     res.status(201).json(currentTags);
   } catch (err) {
     res.status(400).json({
-      error: `${err})`,
+      error: `${err}`,
     });
   }
 });

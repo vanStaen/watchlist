@@ -8,7 +8,7 @@ import Title from './Title/Title';
 import Bookmark from './Bookmark/Bookmark';
 import './Entry.css';
 
-const Entry = props => {
+const Entry = (props) => {
   const [isDone, setIsDone] = useState(props.entry.done);
   const [isBookmarked, setIsBookmarked] = useState(props.entry.bookmark);
   const [showBookmarkOnFront, setShowBookmarkOnFront] = useState(props.entry.bookmark);
@@ -69,6 +69,7 @@ const Entry = props => {
             id={props.entry.id}
             setIsBookmarked={setIsBookmarked}
             isBookmarked={isBookmarked}
+            token={props.token}
             front={false}
           />
           <div className='entry-card-back-corner' onClick={handlerFlipDivBack} >
@@ -76,17 +77,37 @@ const Entry = props => {
           </div>
           <div className='entry-card-back__header'>
             <div className='entry-card-back__header-added'>#{props.entry.id}, Added: {date}</div>
-            <Title id={props.entry.id} title={props.entry.title} />
+            <Title
+              id={props.entry.id}
+              title={props.entry.title}
+              token={props.token}
+            />
           </div>
 
           <div className='entry-card-back__tags'>
-            <Tags tags={props.entry.tags} id={props.entry.id} />
+            <Tags
+              tags={props.entry.tags}
+              id={props.entry.id}
+              token={props.token}
+            />
           </div>
 
           <div className='entry-card-back__actions'>
-            <CheckButton id={props.entry.id} setIsDone={setIsDone} isDone={isDone} />
-            <RateThisVideo id={props.entry.id} rate={props.entry.rate} />
-            <DeleteButton id={props.entry.id} />
+            <CheckButton
+              id={props.entry.id}
+              setIsDone={setIsDone}
+              sDone={isDone}
+              token={props.token}
+            />
+            <RateThisVideo
+              id={props.entry.id}
+              rate={props.entry.rate}
+              token={props.token}
+            />
+            <DeleteButton
+              id={props.entry.id}
+              token={props.token}
+            />
           </div>
 
           <a href={props.entry.link} target='_blank'>

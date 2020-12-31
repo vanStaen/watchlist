@@ -31,6 +31,7 @@ const CheckButton = props => {
             //console.log("Sucess", patchResult);
         }
         ).catch(error => {
+            notification.error({ error: error.message, });
             console.log("error", error.message);
         });
     }

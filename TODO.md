@@ -15,7 +15,6 @@
   - [ ] Sort Tags Alpha
   - [ ] Loader on CloseTags
 - [ ] Sort result (per rating)
-- [ ] Form : Insert new videos
 - [ ] Info/impressum
 - [ ] Database auto backup (as JSON file)?
   - [x] Fetch data from db and save in Json file
@@ -54,3 +53,4 @@
 - [x] Bookmark feature
 - [x] Create a custom navbar
 - [x] Error shown on BackEnd connection error
+- [x] Form : Insert new videos

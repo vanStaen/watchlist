@@ -52,10 +52,15 @@ class Entries extends Component {
       const belongsToFilter = this.props.filters.every((val) => entry.tags.includes(val));
 
       if (belongsToFilter) {
-        return <Entry key={entry.id} entry={entry} />
+        return <Entry
+          key={entry.id}
+          entry={entry}
+          token={this.props.token}
+        />
       } else {
         return null
       }
+
     })
 
     const entriesNotNull = entries.filter(function (e) {

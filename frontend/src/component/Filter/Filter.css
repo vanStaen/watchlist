@@ -24,3 +24,7 @@
 .drawer__listtags {
     margin-left: 70px;
 }
+
+.ant-drawer-mask {
+  background-color:rgba(0, 0, 0, 0.33) !important;
+}
