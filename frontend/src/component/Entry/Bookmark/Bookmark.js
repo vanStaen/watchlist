@@ -9,7 +9,6 @@ const Bookmark = props => {
 
     const patchBookmark = (value) => {
         async function patchEntry(value) {
-            console.log("Bearer " + props.token)
             const response = await axios({
                 url: process.env.REACT_APP_API_URL + "watchlist/" + props.id,
                 method: 'PATCH',
