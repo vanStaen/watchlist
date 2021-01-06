@@ -2,7 +2,6 @@
 
 ## To-dos:
 
-- [ ] Easy login function
 - [ ] Lazy Loading of images
 - [ ] Infinite scrolling
 - [ ] Filter result (per tags)
@@ -54,3 +53,4 @@
 - [x] Create a custom navbar
 - [x] Error shown on BackEnd connection error
 - [x] Form : Insert new videos
+- [x] Easy login function

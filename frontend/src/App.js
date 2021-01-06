@@ -19,7 +19,7 @@ const openNotification = (msg, desc, showtime, type) => {
     description: desc,
     duration: showtime,
     type: type,
-    placement: "topRight",
+    placement: "bottomRight",
   });
 };
 
@@ -114,7 +114,6 @@ function App() {
         console.log("[script] Fetching a new token");
       }
       let requestBody = { refreshToken: refreshToken };
-      console.log("requestBody", requestBody);
       fetch(process.env.REACT_APP_AUTH_URL + "token", {
         method: "POST",
         body: JSON.stringify(requestBody),
@@ -147,7 +146,6 @@ function App() {
 
   useEffect(() => {
     if (refreshToken != null && token === null) {
-      console.log('Interceptor thinks it needs a new token!')
       getNewToken(refreshToken);
     }
   })
@@ -172,6 +170,7 @@ function App() {
       <AddForm
         showAddForm={showAddForm}
         setShowAddForm={setShowAddForm}
+        token={token}
       />
       <div className="Drawers-Wrapper">
         <Filter

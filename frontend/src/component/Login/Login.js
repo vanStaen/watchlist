@@ -36,7 +36,7 @@ const Login = (props) => {
             notification.success({
                 message: "You have successfully logged in.",
                 duration: 3,
-                placement: "topRight",
+                placement: "bottomRight",
             });
         }
         ).catch(error => {

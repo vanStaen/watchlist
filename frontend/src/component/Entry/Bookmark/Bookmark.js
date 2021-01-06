@@ -9,6 +9,7 @@ const Bookmark = props => {
 
     const patchBookmark = (value) => {
         async function patchEntry(value) {
+            console.log("Bearer " + props.token)
             const response = await axios({
                 url: process.env.REACT_APP_API_URL + "watchlist/" + props.id,
                 method: 'PATCH',
@@ -25,12 +26,9 @@ const Bookmark = props => {
             return patchResult;
         }
         // fetch Entries
-        patchEntry(value).then((resData) => {
-            const patchResult = resData;
-            //console.log("Sucess", patchResult);
+        patchEntry(value).then(() => {
             const messageTitle = value ? 'Bookmarked!' : 'Bookmarked deleted';
             const messageText = value ? 'will appears with a bookmark from now on.' : 'is not bookmarked anymore';
-
             notification.success({
                 message: messageTitle,
                 description:
@@ -41,7 +39,6 @@ const Bookmark = props => {
         ).catch(error => {
             console.log("error", error.message);
             notification.error({
-                message: messageTitle,
                 description: error.message,
                 placement: "bottomRight",
             });
