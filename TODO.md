@@ -2,6 +2,7 @@
 
 ## To-dos:
 
+- [ ] Show edit functions only on logged
 - [ ] Lazy Loading of images
 - [ ] Infinite scrolling
 - [ ] Filter result (per tags)
@@ -37,7 +38,7 @@
 - [x] Handle editing of tags 
   - [x] Delete event from tag
   - [x] Input element to add tag  
-  - [x] Add on presskey enter
+  - [x] Add on press key enter
   - [x] Do all the calls
   - [ ] ~~Add/Delete single element of array in Postgres~~
   - [x] Always update the full array of strings
@@ -46,7 +47,7 @@
 - [x] Handle votes
   - [x] Create new column vote
   - [x] Create vote input
-  - [x] Handle vote querry
+  - [x] Handle vote query
 - [x] Set Entry to done on button click
 - [x] Handle editing of Title
 - [x] Bookmark feature

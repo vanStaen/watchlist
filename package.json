@@ -1,7 +1,7 @@
 {
   "name": "watchlist",
   "version": "1.0.0",
-  "description": "or `ressources for later dark days`.",
+  "description": "or `resources for later dark days`.",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/vanStaen/watchlist.git"
   },
-  "author": "cvanstaen",
+  "author": "vanStaen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vanStaen/watchlist/issues"

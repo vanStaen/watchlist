@@ -46,7 +46,7 @@ const Menu = (props) => {
             </div>
           </li>
 
-          <li className="nav-item" onClick={() => props.setShowAddForm(!props.showAddForm)}>
+          {props.token != null && (<li className="nav-item" onClick={() => props.setShowAddForm(!props.showAddForm)}>
             <Tooltip placement="right" title="Add a link">
               <div className="nav-link">
                 <img
@@ -56,8 +56,7 @@ const Menu = (props) => {
                 </img>
               </div>
             </Tooltip>
-          </li>
-
+          </li>)}
 
           <li className="nav-item">
             <Tooltip placement="right" title="Sort results">
