@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Tag, Input } from 'antd';
+import { Tag, Input, notification } from 'antd';
 import axios from 'axios';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -32,7 +32,7 @@ const Tags = props => {
         // fetch Entries
         patchEntry(tags).then((resData) => {
             const patchResult = resData;
-            //console.log("Sucess", patchResult);
+            //console.log("Success", patchResult);
         }
         ).catch(error => {
             notification.error({ error: error.message, });
@@ -128,7 +128,7 @@ const Tags = props => {
                 className="edit-tag"
                 key={index}
                 color="#1A2626"
-                closable
+                closable={props.token}
                 onClose={() => handlerDeleteTag(index)}
             >
                 <span
@@ -160,7 +160,7 @@ const Tags = props => {
                     onPressEnter={handleInputConfirm}
                 />
             )}
-            {!inputVisible && (
+            {!inputVisible && props.token != null && (
                 <Tag className="site-tag-plus" onClick={showInput}>
                     <PlusOutlined /> New Tag
                 </Tag>

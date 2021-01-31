@@ -55,8 +55,8 @@ const Bookmark = props => {
 
     return (
         <div className="bookmark" id="bookmark">
-            {front ?
-                (bookmarked &&
+            { front ?
+                ( bookmarked &&
                     (<img
                         className="bookmark__img"
                         src={bookmark}
@@ -74,7 +74,7 @@ const Bookmark = props => {
                         </img>
                     </Tooltip>)
                     :
-                    (<Tooltip placement="right" title="Bookmark this.">
+                    props.token != null &&  (<Tooltip placement="right" title="Bookmark this.">
                         <img
                             onClick={() => handlerBookmarking(true)}
                             className="bookmark__img clickable grey"

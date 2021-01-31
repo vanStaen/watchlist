@@ -93,22 +93,25 @@ const Entry = (props) => {
           </div>
 
           <div className='entry-card-back__actions'>
+          {props.token != null && 
+            (<>
             <CheckButton
-              id={props.entry.id}
-              setIsDone={setIsDone}
-              sDone={isDone}
-              token={props.token}
-            />
-            <RateThisVideo
-              id={props.entry.id}
-              rate={props.entry.rate}
-              token={props.token}
-            />
-            <DeleteButton
-              id={props.entry.id}
-              token={props.token}
-            />
-          </div>
+                id={props.entry.id}
+                setIsDone={setIsDone}
+                sDone={isDone}
+                token={props.token}
+              />
+              <RateThisVideo
+                id={props.entry.id}
+                rate={props.entry.rate}
+                token={props.token}
+              />
+              <DeleteButton
+                id={props.entry.id}
+                token={props.token}
+              />
+              </>)}
+            </div>
 
           <a href={props.entry.link} target='_blank'>
             <div className="entry-card-back__play">
