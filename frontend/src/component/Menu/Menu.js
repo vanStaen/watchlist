@@ -23,7 +23,6 @@ const Menu = (props) => {
   const styleLoginButton = props.token != null ? "nav-link nav-link-active" : "nav-link";
   const tipLoginButton = props.token != null ? "Click to logout" : "Login";
 
-
   return (
     <div>
       <nav className="navbar">
@@ -96,14 +95,25 @@ const Menu = (props) => {
             </Tooltip>
           </li>
 
-          <li className="nav-item" onClick={() => props.setShowLoginForm(!props.showAddForm)}>
+          <li className="nav-item">
             <Tooltip placement="right" title={tipLoginButton}>
               <span className={styleLoginButton}>
-                <img
+                {props.token != null ?
+                (<img
                   className="nav-icon"
                   src={loginIcon}
-                  alt="Login">
-                </img>
+                  alt="Login"
+                  onClick={() => props.logout()}>
+                </img>)
+                :
+                (<img
+                  className="nav-icon"
+                  src={loginIcon}
+                  alt="Login"
+                  onClick={() => {props.setShowLoginForm(!props.showAddForm)}
+                  }>
+                </img>)
+                }
               </span>
             </Tooltip>
           </li>

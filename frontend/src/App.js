@@ -165,6 +165,7 @@ function App() {
         showAddForm={showAddForm}
         setShowAddForm={setShowAddForm}
         setShowLoginForm={setShowLoginForm}
+        logout={logout}
         token={token}
       />
       <AddForm
