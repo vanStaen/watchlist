@@ -7,7 +7,7 @@ import './Login.css';
 const Login = (props) => {
 
     const handleLogin = (values) => {
-        const dataRequest = { email: values.email, password: values.password }
+        const dataRequest = { email: "clement.vanstaen@gmail.com", password: values.password }
         fetchLogin(dataRequest);
         props.setShowLoginForm(false);
     };
@@ -79,18 +79,11 @@ const Login = (props) => {
                     {...layout}
                     form={form}
                     name="loginForm"
-
                 >
                     <Form.Item
-                        label="eMail"
-                        name="email"
-                        initialValue="clement.vanstaen@gmail.com"
-                    >
-                        <Input disabled />
-                    </Form.Item>
-                    <Form.Item
-                        label="Pwd"
+                        label="PWD"
                         name="password"
+                        className="loginModal__pwd"
                         rules={[{ required: true, message: 'Please input your password!' }]}
                     >
                         <Input.Password />
