@@ -57,7 +57,7 @@ const Menu = (props) => {
             </Tooltip>
           </li>)}
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Tooltip placement="right" title="Sort results">
               <a href="#" className="nav-link">
                 <img
@@ -67,7 +67,7 @@ const Menu = (props) => {
                 </img>
               </a>
             </Tooltip>
-          </li>
+          </li> */}
 
           <li className="nav-item"
             onClick={toggleFilterVisible}>
@@ -83,7 +83,7 @@ const Menu = (props) => {
             </Tooltip>
           </li>
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Tooltip placement="right" title="Info & Impressum">
               <a href="#" className="nav-link">
                 <img
@@ -93,26 +93,26 @@ const Menu = (props) => {
                 </img>
               </a>
             </Tooltip>
-          </li>
+          </li> */}
 
           <li className="nav-item">
             <Tooltip placement="right" title={tipLoginButton}>
               <span className={styleLoginButton}>
                 {props.token != null ?
-                (<img
-                  className="nav-icon"
-                  src={loginIcon}
-                  alt="Login"
-                  onClick={() => props.logout()}>
-                </img>)
-                :
-                (<img
-                  className="nav-icon"
-                  src={loginIcon}
-                  alt="Login"
-                  onClick={() => {props.setShowLoginForm(!props.showAddForm)}
-                  }>
-                </img>)
+                  (<img
+                    className="nav-icon"
+                    src={loginIcon}
+                    alt="Login"
+                    onClick={() => props.logout()}>
+                  </img>)
+                  :
+                  (<img
+                    className="nav-icon"
+                    src={loginIcon}
+                    alt="Login"
+                    onClick={() => { props.setShowLoginForm(!props.showAddForm) }
+                    }>
+                  </img>)
                 }
               </span>
             </Tooltip>
